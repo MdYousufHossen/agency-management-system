@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
+    "@types/styled-components": "^5.1.26",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.1",
     "redux": "^4.2.0",
     "styled-components": "^5.3.6",
     "vite-plugin-svgr": "^2.2.1",
