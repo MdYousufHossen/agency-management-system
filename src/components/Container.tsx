@@ -5,7 +5,8 @@ interface ContainerProps {
     width?: string;
     pt?: string;
     pb?: string;
-    ph?: string;
+    pl?: string;
+    pr?: string;
     displayFlex?: boolean;
     gap?: string;
     flexCol?: boolean;
@@ -17,6 +18,7 @@ interface ContainerProps {
     shadowBox?: string;
     brt?: string;
     brb?: string;
+    flexWrape?: boolean;
 }
 
 const Container = styled.div<ContainerProps>`
@@ -26,8 +28,10 @@ const Container = styled.div<ContainerProps>`
     margin: auto;
     ${(p) => p.pt && `padding-top: ${p.pt};`}
     ${(p) => p.pb && `padding-bottom: ${p.pb};`}
-    ${(p) => p.ph && `padding-left: ${p.ph}; padding-right: ${p.ph};`}
+    ${(p) => p.pl && `padding-left: ${p.pl};`}
+    ${(p) => p.pr && `padding-right: ${p.pr};`}
     ${(p) => p.displayFlex && `display: flex;`}
+    ${(p) => p.flexWrape && `flex-wrap: wrap;`}
     ${(p) => p.gap && `gap: ${p.gap};`}
     ${(p) => p.flexCol && `flex-direction: column;`}
     ${(p) => p.flex1 && `flex: 1;`}

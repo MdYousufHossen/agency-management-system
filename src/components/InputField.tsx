@@ -7,17 +7,17 @@ import Spacer from "./Spacer";
 import Typography from "./Typography";
 
 const InputFieldStyled = styled.input`
-    height: 2.25vw;
-    width: 17.25vw;
+    height: 35px;
+    width: 245px;
     border: 1px solid #b1b1b0;
-    border-radius: 1.2vw;
+    border-radius: 24px;
     outline-color: blue;
     background: transparent;
-    padding-left: 2.75vw;
-    padding-right: 2.75vw;
+    padding-left: 40px;
+    padding-right: 40px;
     flex: 1;
-    margin-bottom: 0.75vw;
-    margin-top: 0.5vw;
+    margin-bottom: 15px;
+    margin-top: 10px;
     ${(p: { borderColor?: string }) => p.borderColor && `border-color:${p.borderColor};`}
 `;
 
@@ -39,11 +39,11 @@ const InputField = memo((Props: IProps) => (
     <Fragment>
         <Container width="fit-content">
             {/* label */}
-            <AbsoluteContent top="-1.2vw" left="0.95vw">
+            <AbsoluteContent top="-12px" left="18px">
                 <Typography variant="body2">{Props.label}</Typography>
             </AbsoluteContent>
             {/* Icon */}
-            <AbsoluteContent top="1.2vw" left="0.95vw">
+            <AbsoluteContent top="20px" left="18px">
                 <Icon name={Props.icon} height={20} width={20} />
             </AbsoluteContent>
             {/* input field */}
@@ -61,14 +61,14 @@ const InputField = memo((Props: IProps) => (
             <Spacer flex />
             {/* error message */}
             {Props.error && (
-                <AbsoluteContent top="2.75vw" left="0.95vw">
+                <AbsoluteContent top="55px" left="18px">
                     <Typography color="red" variant="body2">
                         {Props.error}
                     </Typography>
                 </AbsoluteContent>
             )}
         </Container>
-        <Spacer height="1vw" />
+        <Spacer height="15px" />
     </Fragment>
 ));
 export default InputField;

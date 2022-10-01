@@ -4,18 +4,32 @@ interface buttonType {
     bgColor?: string;
     bgRadius?: string;
     borderColor?: string;
-    variant: "text" | "contained" | "outlined" | "textButton";
+    variant?: "text" | "contained" | "outlined" | "textButton";
     width?: string;
     disabled?: boolean;
     textButton?: boolean;
     size?: string;
     textWithIcon?: boolean;
+    margin?: string;
+    mt?: string;
+    mr?: string;
+    mb?: string;
+    ml?: string;
 }
 
-const sizeStyle: { [key: string]: string } = {
-    small: "5px 10px",
-    medium: "5px 20px",
-    large: "10px 30px",
+const sizeStyle: { [key: string]: { [key: string]: string } } = {
+    small: {
+        padding: "5px 15px",
+        borderRadius: "2px",
+    },
+    medium: {
+        padding: "5px 30px",
+        borderRadius: "5px",
+    },
+    large: {
+        padding: "10px 50px",
+        borderRadius: "8px",
+    },
 };
 
 const variant: { [key: string]: (props: buttonType) => { [key: string]: string | { [key: string]: string } } } = {
@@ -24,9 +38,6 @@ const variant: { [key: string]: (props: buttonType) => { [key: string]: string |
             color: props.color || "#3DB5D8",
             border: "none",
             background: "none",
-            padding: "10px",
-            fontSize: "14px",
-            width: " 25.2vw",
             margin: "10px",
             "&:disabled": {
                 color: "#B1B1B0",
@@ -41,11 +52,7 @@ const variant: { [key: string]: (props: buttonType) => { [key: string]: string |
             alignItems: "center",
             justifyContent: "space-between",
             backgroundColor: props.bgColor || "#3DB5D8",
-            borderRadius: props.bgRadius || "1.56vw",
-            padding: props.size ? sizeStyle[props.size] : "10px",
-            fontSize: "14px",
-            width: !props.size ? props.width || "25.2vw" : "",
-            margin: "10px",
+            borderRadius: props.bgRadius || "",
             "&:disabled": {
                 backgroundColor: "#E0E0E0",
                 color: "#B1B1B0",
@@ -56,12 +63,8 @@ const variant: { [key: string]: (props: buttonType) => { [key: string]: string |
         return {
             color: props.color || "#3DB5D8",
             border: `1px solid ${props.borderColor || "#3DB5D8"} `,
-            backgroundColor: props.bgColor || "white",
-            borderRadius: props.bgRadius || "1.56vw",
-            padding: props.size ? sizeStyle[props.size] : "10px",
-            fontSize: "14px",
-            width: !props.size ? props.width || "25.2vw" : "",
-            margin: "10px",
+            backgroundColor: " transparent",
+            borderRadius: props.bgRadius || "",
             "&:disabled": {
                 border: "1px solid#E0E0E0",
                 color: "#B1B1B0",
@@ -73,10 +76,7 @@ const variant: { [key: string]: (props: buttonType) => { [key: string]: string |
             color: props.color || "#3DB5D8",
             border: "none",
             background: "none",
-            padding: "5px",
-            fontSize: "14px",
             textDecoration: "none",
-            margin: "0",
             "&:disabled": {
                 color: "#B1B1B0",
             },
@@ -85,7 +85,15 @@ const variant: { [key: string]: (props: buttonType) => { [key: string]: string |
 };
 
 export const Button = styled.button<buttonType>`
-    ${(p) => variant[p.variant]}
+    ${(p) => (p.variant ? variant[p.variant] : variant["contained"])};
+    ${(p) => (p.size ? sizeStyle[p.size] : sizeStyle["medium"])};
+    width: ${(p) => p.width && p.width};
+    margin: ${(p) => p.margin && p.margin};
+    margin-top: ${(p) => p.mt && p.mt};
+    margin-right: ${(p) => p.mr && p.mr};
+    margin-bottom: ${(p) => p.mb && p.mb};
+    margin-left: ${(p) => p.ml && p.ml};
+    fontsize: 14px;
     cursor: pointer;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */

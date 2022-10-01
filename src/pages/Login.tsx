@@ -10,7 +10,7 @@ const Login = () => {
     console.log({ name, email, password });
 
     return (
-        <Container width="60%" displayFlex>
+        <Container width="70%" pt="10vw" displayFlex>
             <Container width="fit-content">
                 <Welcome width="25vw" height="25vw" />
             </Container>

@@ -1,14 +1,20 @@
-import StyledLink from "~/components/StyledLink";
-import Typography from "~/components/Typography";
-import ROUTES from "~/constant/routes";
+import { Fragment } from "react";
+import Banner from "~/components/Banner";
+import CustomerTrust from "~/components/CustomerTrust";
+import Services from "~/components/Services";
+import Spacer from "~/components/Spacer";
+import TrustedBy from "~/components/TrustedBy";
 
 const Home = () => {
     return (
-        <div>
-            <Typography variant="title1">Home</Typography>
-            <StyledLink to={ROUTES.LOGIN}> Login </StyledLink>
-            <StyledLink to={ROUTES.REGISTER}> Register </StyledLink>
-        </div>
+        <Fragment>
+            <Banner />
+            <TrustedBy />
+            <Spacer height="90px" />
+            <CustomerTrust />
+            <Spacer height="120px" />
+            <Services />
+        </Fragment>
     );
 };
 
