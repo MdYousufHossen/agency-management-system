@@ -11,7 +11,7 @@ const InputFieldStyled = styled.input`
     width: 245px;
     border: 1px solid #b1b1b0;
     border-radius: 24px;
-    outline-color: blue;
+    outline-color: #12141d;
     background: transparent;
     padding-left: 40px;
     padding-right: 40px;
@@ -40,7 +40,9 @@ const InputField = memo((Props: IProps) => (
         <Container width="fit-content">
             {/* label */}
             <AbsoluteContent top="-12px" left="18px">
-                <Typography variant="body2">{Props.label}</Typography>
+                <Typography color="black" variant="body2">
+                    {Props.label}
+                </Typography>
             </AbsoluteContent>
             {/* Icon */}
             <AbsoluteContent top="20px" left="18px">

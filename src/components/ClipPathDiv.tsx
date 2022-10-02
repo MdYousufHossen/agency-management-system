@@ -7,9 +7,8 @@ const ClipPathDiv = styled.div`
     clip-path: polygon(0 0, 100% 0%, 100% 98%, 0 91%);
     position: relative;
     background-color: #12141d;
-    height: 99vh;
+    height: 90vh;
     &:after {
-        clip-path: polygon(0 91%, 100% 98%, 100% 120%, 0 98%);
         clip-path: polygon(0 91%, 100% 98%, 100% 120%, 0 98%);
         background: #e99d15;
         content: "";

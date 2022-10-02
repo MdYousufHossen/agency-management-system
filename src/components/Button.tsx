@@ -35,7 +35,7 @@ const sizeStyle: { [key: string]: { [key: string]: string } } = {
 const variant: { [key: string]: (props: buttonType) => { [key: string]: string | { [key: string]: string } } } = {
     text: (props) => {
         return {
-            color: props.color || "#3DB5D8",
+            color: props.color || "#F23936",
             border: "none",
             background: "none",
             margin: "10px",
@@ -51,7 +51,7 @@ const variant: { [key: string]: (props: buttonType) => { [key: string]: string |
             display: props.textWithIcon ? "flex" : " ",
             alignItems: "center",
             justifyContent: "space-between",
-            backgroundColor: props.bgColor || "#3DB5D8",
+            backgroundColor: props.bgColor || "#F23936",
             borderRadius: props.bgRadius || "",
             "&:disabled": {
                 backgroundColor: "#E0E0E0",
@@ -61,8 +61,8 @@ const variant: { [key: string]: (props: buttonType) => { [key: string]: string |
     },
     outlined: (props) => {
         return {
-            color: props.color || "#3DB5D8",
-            border: `1px solid ${props.borderColor || "#3DB5D8"} `,
+            color: props.color || "#F23936",
+            border: `1px solid ${props.borderColor || "#F23936"} `,
             backgroundColor: " transparent",
             borderRadius: props.bgRadius || "",
             "&:disabled": {
@@ -93,6 +93,11 @@ export const Button = styled.button<buttonType>`
     margin-right: ${(p) => p.mr && p.mr};
     margin-bottom: ${(p) => p.mb && p.mb};
     margin-left: ${(p) => p.ml && p.ml};
+    transition: 0.3s;
+    opacity: 0.8;
+    &:hover {
+        opacity: 1;
+    }
     fontsize: 14px;
     cursor: pointer;
     -webkit-touch-callout: none; /* iOS Safari */

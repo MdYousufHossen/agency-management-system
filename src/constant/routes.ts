@@ -4,7 +4,11 @@ export const PUBLIC_ROUTES = {
     REGISTER: "/register",
 };
 
-export const PRIVATE_ROUTES = {};
+export const PRIVATE_ROUTES = {
+    DASHBOARD: "/dashboard",
+    CHAT_APP: "/dashboard/chatapp",
+    PROJECTS: "/dashboard/projects",
+};
 
 const ROUTES = {
     ...PUBLIC_ROUTES,

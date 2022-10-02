@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "~/universal/breakpoints/displayBreakpoints";
 
 interface ContainerProps {
     height?: string;
@@ -19,6 +20,9 @@ interface ContainerProps {
     brt?: string;
     brb?: string;
     flexWrape?: boolean;
+    padding?: string;
+    mobile?: {};
+    styles?: {};
 }
 
 const Container = styled.div<ContainerProps>`
@@ -30,6 +34,7 @@ const Container = styled.div<ContainerProps>`
     ${(p) => p.pb && `padding-bottom: ${p.pb};`}
     ${(p) => p.pl && `padding-left: ${p.pl};`}
     ${(p) => p.pr && `padding-right: ${p.pr};`}
+    ${(p) => p.padding && `padding: ${p.padding};`}
     ${(p) => p.displayFlex && `display: flex;`}
     ${(p) => p.flexWrape && `flex-wrap: wrap;`}
     ${(p) => p.gap && `gap: ${p.gap};`}
@@ -40,11 +45,14 @@ const Container = styled.div<ContainerProps>`
     ${(p) => p.overflowHidden && `overflow: hidden;`}
     ${(p) => (p.background ? `background-color: ${p.background};` : "background-color: transparent;")}
     ${(p) => p.shadowBox && `box-shadow: ${p.shadowBox};`}
-
     ${(p) => p.brt && `border-top-left-radius: ${p.brt};`}
     ${(p) => p.brt && `border-top-right-radius: ${p.brt};`}
     ${(p) => p.brb && `border-bottom-left-radius: ${p.brb};`}
     ${(p) => p.brb && `border-bottom-right-radius: ${p.brb};`}
+    ${(p) => p.styles};
+    @media ${device.mobileL} {
+        ${(p) => p.mobile}
+    }
 `;
 
 export default Container;

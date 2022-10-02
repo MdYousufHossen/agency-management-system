@@ -5,11 +5,11 @@ import Typography from "./Typography";
 const CustomerTrust = () => {
     return (
         <Container displayFlex width="80%">
-            <Container width="30%">
+            <Container mobile={"display:none"} width="30%">
                 <CustomerTrustIcon width="90%" height="40%" />
             </Container>
-            <Spacer flex />
-            <Container width="60%">
+            <Spacer mobile={"display:none"} flex />
+            <Container width="60%" mobile={"width:100%"}>
                 <Typography variant="title2" color="black">
                     Cyber security solutions built on customer trust
                 </Typography>

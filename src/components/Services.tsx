@@ -7,6 +7,15 @@ import Typography from "./Typography";
 const Card = styled.div`
     width: 316px;
     height: 183px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e1e3e8;
+    border-radius: 10px;
+    transition: 1s;
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.2);
+    }
 `;
 
 const Services = () => {
@@ -50,7 +59,8 @@ const Services = () => {
     ];
 
     return (
-        <Container width="fit-content">
+        <Container width="fit-content" background="#FAFAFA">
+            <Spacer height="20px" />
             <Typography align="center" variant="title2" color="black">
                 We offer professional
             </Typography>
@@ -58,7 +68,7 @@ const Services = () => {
                 cyber security services
             </Typography>
             <Spacer height="50px" />
-            <Container width="90%" displayFlex flexWrape alignItemsCenter justifyContentCenter gap="20px">
+            <Container width="90%" displayFlex flexWrape alignItemsCenter justifyContentCenter gap="25px">
                 {services.map((s) => (
                     <Card>
                         <Icon name={ICON_NAME[s.icon]} height={50} width={50} />

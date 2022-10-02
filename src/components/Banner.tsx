@@ -28,7 +28,7 @@ const Banner = () => {
                         hello
                     </Button>
                 </Container>
-                <Container width="fit-content">
+                <Container width="fit-content" mobile={{ display: "none" }}>
                     <Manager height="90%" width="90%" />
                 </Container>
             </Container>
