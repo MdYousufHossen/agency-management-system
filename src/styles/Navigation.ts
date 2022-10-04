@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-const wrapper = styled.div`
-    width: 20vw;
+const wrapper = styled.div<{ toggle: Boolean }>`
+    width: ${(p) => (p.toggle ? "5%" : "20%")};
     background-color: #12141d;
     float: left;
     position: relative !important;
     min-height: calc(100vh - 25.6vh);
 `;
-const HorizontalLine = styled.div`
-    width: 16vw;
+const HorizontalLine = styled.div<{ toggle?: Boolean }>`
+    width: ${(p) => (p.toggle ? "65px" : "200px")};
     border-bottom: 2px solid #b5b3bc;
     margin: 0 auto;
 `;

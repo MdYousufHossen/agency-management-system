@@ -7,16 +7,15 @@ import Spacer from "./Spacer";
 import Typography from "./Typography";
 
 const InputFieldStyled = styled.input`
-    height: 35px;
-    width: 245px;
+    height: ${(p) => (p.width ? p.height : "35px")};
+    width: ${(p) => (p.width ? p.width : "245px")};
     border: 1px solid #b1b1b0;
     border-radius: 24px;
     outline-color: #12141d;
     background: transparent;
     padding-left: 40px;
-    padding-right: 40px;
+    padding-right: 30px;
     flex: 1;
-    margin-bottom: 15px;
     margin-top: 10px;
     ${(p: { borderColor?: string }) => p.borderColor && `border-color:${p.borderColor};`}
 `;
@@ -33,6 +32,8 @@ interface IProps {
     required?: boolean;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    width?: string;
+    height?: string;
 }
 
 const InputField = memo((Props: IProps) => (
@@ -59,6 +60,8 @@ const InputField = memo((Props: IProps) => (
                 value={Props.value}
                 id={Props.id}
                 required={Props.required}
+                width={Props.width}
+                height={Props.height}
             />
             <Spacer flex />
             {/* error message */}

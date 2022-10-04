@@ -14,6 +14,7 @@ interface ContainerProps {
     flex1?: boolean;
     alignItemsCenter?: boolean;
     justifyContentCenter?: boolean;
+    justifyBetween?: boolean;
     overflowHidden?: boolean;
     background?: string;
     shadowBox?: string;
@@ -23,6 +24,7 @@ interface ContainerProps {
     padding?: string;
     mobile?: {};
     styles?: {};
+    overflowScrollX?: boolean;
 }
 
 const Container = styled.div<ContainerProps>`
@@ -42,7 +44,9 @@ const Container = styled.div<ContainerProps>`
     ${(p) => p.flex1 && `flex: 1;`}
     ${(p) => p.alignItemsCenter && `align-items: center;`}
     ${(p) => p.justifyContentCenter && `justify-content: center;`}
+    ${(p) => p.justifyBetween && `justify-content: space-between;`}
     ${(p) => p.overflowHidden && `overflow: hidden;`}
+    ${(p) => p.overflowScrollX && `overflow-x: scroll;`}
     ${(p) => (p.background ? `background-color: ${p.background};` : "background-color: transparent;")}
     ${(p) => p.shadowBox && `box-shadow: ${p.shadowBox};`}
     ${(p) => p.brt && `border-top-left-radius: ${p.brt};`}

@@ -8,7 +8,7 @@ interface buttonType {
     width?: string;
     disabled?: boolean;
     textButton?: boolean;
-    size?: string;
+    size?: "large" | "medium" | "small";
     textWithIcon?: boolean;
     margin?: string;
     mt?: string;

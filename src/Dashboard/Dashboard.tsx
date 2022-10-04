@@ -1,12 +1,14 @@
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Container from "~/components/Container";
 import DNavigation from "~/container/DNavigation";
 
 const Dashboard = () => {
+    const [checked, setChecked] = useState<Boolean>(false);
     return (
         <div style={{ display: "flex" }}>
-            <DNavigation />
-            <Container width="92%" background="green" height="100vh">
+            <DNavigation checked={checked} setChecked={setChecked} />
+            <Container width={checked ? "95%" : "80%"} height="100vh">
                 <Outlet />
             </Container>
         </div>

@@ -19,6 +19,7 @@ import { ReactComponent as Linkedin } from "~/assets/icons/linkedin.svg";
 import { ReactComponent as Location } from "~/assets/icons/location.svg";
 import { ReactComponent as Lock } from "~/assets/icons/Lock.svg";
 import { ReactComponent as Logo } from "~/assets/icons/logo.svg";
+import { ReactComponent as MessageSend } from "~/assets/icons/messageSend.svg";
 import { ReactComponent as microsoft } from "~/assets/icons/microsoft.svg";
 import { ReactComponent as Mobile } from "~/assets/icons/mobile.svg";
 import { ReactComponent as ModalTrash } from "~/assets/icons/modalTrash.svg";
@@ -43,12 +44,22 @@ import EmptyHolderDiv from "./EmptyHolderDiv";
 interface StyledContainerProps {
     color?: string;
     clickable?: boolean;
+    mt?: string;
+    mr?: string;
+    mb?: string;
+    ml?: string;
+    margin?: string;
 }
 
 const StyledContainer = styled.div<StyledContainerProps>`
     * {
         ${(p) => p.color && `fill: ${p.color};`}
         ${(p) => p.clickable && `cursor: pointer;`}
+       margin-top: ${(p) => p.mt};
+        margin-right: ${(p) => p.mr};
+        margin-bottom: ${(p) => p.mb};
+        margin-left: ${(p) => p.ml};
+        margin: ${(p) => p.margin};
     }
 `;
 
@@ -90,6 +101,7 @@ const ICON = {
     testing,
     security,
     network,
+    MessageSend,
 };
 
 export const ICON_NAME = {
@@ -130,6 +142,7 @@ export const ICON_NAME = {
     testing: "testing",
     security: "security",
     network: "network",
+    messageSend: "MessageSend",
 };
 
 export interface IconProps {
@@ -138,6 +151,11 @@ export interface IconProps {
     width: number;
     color?: string;
     onClick?: MouseEventHandler<SVGSVGElement>;
+    mt?: string;
+    mr?: string;
+    mb?: string;
+    ml?: string;
+    margin?: string;
 }
 
 const Icon = memo((props: IconProps) => {
