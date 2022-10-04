@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export interface AbsoluteContentProps {
+export interface FixedContentProps {
     height?: string;
     width?: string;
     flex?: boolean;
@@ -11,8 +11,8 @@ export interface AbsoluteContentProps {
     clickable?: boolean;
 }
 
-const AbsoluteContent = styled.div<AbsoluteContentProps>`
-    position: absolute;
+const FixedContent = styled.div<FixedContentProps>`
+    position: sticky;
     z-index: 100;
     ${(p) => p.height && `height: ${p.height};`}
     ${(p) => p.width && `width: ${p.width};`}
@@ -35,4 +35,4 @@ const AbsoluteContent = styled.div<AbsoluteContentProps>`
     `};
 `;
 
-export default AbsoluteContent;
+export default FixedContent;
