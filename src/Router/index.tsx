@@ -8,14 +8,29 @@ import ProjectManagement from "~/Dashboard/ProjectManagement";
 import Home from "~/pages/Home";
 import Login from "~/pages/Login";
 import Register from "~/pages/Register";
+import { PublicRouteHandler } from "./RouteHandler";
 
 export default memo(() => {
     return (
         <Router>
             <Routes>
                 <Route path={ROUTES.HOME} element={<Home />} />
-                <Route path={ROUTES.LOGIN} element={<Login />} />
-                <Route path={ROUTES.REGISTER} element={<Register />} />
+                <Route
+                    path={ROUTES.LOGIN}
+                    element={
+                        <PublicRouteHandler>
+                            <Login />
+                        </PublicRouteHandler>
+                    }
+                />
+                <Route
+                    path={ROUTES.REGISTER}
+                    element={
+                        <PublicRouteHandler>
+                            <Register />
+                        </PublicRouteHandler>
+                    }
+                />
                 <Route path={ROUTES.DASHBOARD} element={<Dashboard />}>
                     <Route path={ROUTES.DASHBOARD} element={<Admin />} />
                     <Route path={ROUTES.CHAT_APP} element={<ChatApp />} />

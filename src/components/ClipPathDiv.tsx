@@ -23,5 +23,3 @@ const ClipPathDiv = styled.div`
 `;
 
 export default ClipPathDiv;
-// clip-path: polygon(0 0, 100% 0%, 100% 99%, 0 91%);
-// -webkit-clip-path: polygon(0 0, 100% 0%, 100% 99%, 0 91%);

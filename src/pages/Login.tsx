@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { PuffLoader } from "react-spinners";
 import { Button } from "~/components/Button";
 import Container from "~/components/Container";
 import Icon, { ICON_NAME } from "~/components/Icon";
@@ -7,10 +9,39 @@ import Spacer from "~/components/Spacer";
 import StyledLink from "~/components/StyledLink";
 import Typography from "~/components/Typography";
 import ROUTES from "~/constant/routes";
+import { useLoginMutation } from "~/feautres/auth/authApi";
 const Login = () => {
     const [email, setEmail] = useState("");
-    const [password, setpassword] = useState("");
-    console.log({ email, password });
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState<string | undefined>("");
+    const [login, { data, isLoading, error: resErr, isError }] = useLoginMutation();
+    console.log(error, isError);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (resErr) {
+            if ("status" in resErr) {
+                // you can access all properties of `FetchBaseQueryError` here
+                const errMsg = "error" in resErr ? resErr.error : JSON.stringify(resErr.data);
+                setError(errMsg);
+            } else {
+                // you can access all properties of `SerializedError` here
+                setError(resErr.message);
+            }
+        }
+        if (data?.accessToken && data?.user) {
+            navigate(ROUTES.DASHBOARD);
+        }
+    }, [data, resErr, navigate]);
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        login({
+            email,
+            password,
+        });
+    };
 
     return (
         <Container displayFlex alignItemsCenter justifyContentCenter width="100%" height="100vh" background="#12141D">
@@ -19,12 +50,13 @@ const Login = () => {
                     <Icon name={ICON_NAME.Logo} width={50} height={50} />
                 </Container>
                 <Spacer height="20px" />
-                <form>
-                    <InputField required onChange={(e) => setEmail(e.target.value)} icon={ICON_NAME.IconEmail} label="Email" type="email" />
-                    <InputField required onChange={(e) => setpassword(e.target.value)} icon={ICON_NAME.Lock} label="Password" type="password" />
+                <form onSubmit={handleSubmit}>
+                    <InputField error={error} required onChange={(e) => setEmail(e.target.value)} icon={ICON_NAME.IconEmail} label="Email" type="email" />
+                    <InputField error={error} required onChange={(e) => setPassword(e.target.value)} icon={ICON_NAME.Lock} label="Password" type="password" />
+
                     <Container width="fit-content">
-                        <Button size="large" variant="contained">
-                            Register
+                        <Button size="small" variant="contained">
+                            {isLoading ? <PuffLoader size={25} color="" /> : "Login"}
                         </Button>
                     </Container>
                 </form>

@@ -4,7 +4,10 @@ import ClipPathDiv from "~/components/ClipPathDiv";
 import Container from "~/components/Container";
 import Spacer from "~/components/Spacer";
 import Typography from "~/components/Typography";
+import ENGLISH from "~/constant/lang/english";
+import ROUTES from "~/constant/routes";
 import AppHeader from "~/container/AppHeader";
+import StyledLink from "./StyledLink";
 
 const Banner = () => {
     return (
@@ -13,19 +16,18 @@ const Banner = () => {
             <Container displayFlex>
                 <Container width="fit-content">
                     <Typography color="white" variant="title1">
-                        Making your
+                        {ENGLISH.HOME_BANNER.TITLE}
                     </Typography>
                     <br />
                     <Typography color="#FFC947" variant="title1">
-                        &#8212; brands fly
+                        &#8212; {ENGLISH.HOME_BANNER.SUB_TITLE}
                     </Typography>
                     <Spacer height="20px" />
                     <Typography pr="20%" align="justify" color="white" variant="body1">
-                        Cybersecurity is the practice of protecting systems and programs from digital attacks. These cyberattacks destroying sensitive
-                        information or interrupting normal business processes.
+                        {ENGLISH.HOME_BANNER.DESCRIPTION}
                     </Typography>
                     <Button size="medium" mt="20px" bgColor="#F23936">
-                        hello
+                        <StyledLink to={ROUTES.LOGIN}>{ENGLISH.HOME_BANNER.BUTTON}</StyledLink>
                     </Button>
                 </Container>
                 <Container width="fit-content" mobile={{ display: "none" }}>

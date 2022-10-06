@@ -66,14 +66,14 @@ const InputField = memo((Props: IProps) => (
             <Spacer flex />
             {/* error message */}
             {Props.error && (
-                <AbsoluteContent top="55px" left="18px">
+                <AbsoluteContent top="47px" left="18px">
                     <Typography color="red" variant="body2">
                         {Props.error}
                     </Typography>
                 </AbsoluteContent>
             )}
         </Container>
-        <Spacer height="15px" />
+        <Spacer height="25px" />
     </Fragment>
 ));
 export default InputField;
