@@ -14,8 +14,8 @@ declare interface RegisterTypes {
     confirmationTokenExpires?: string;
 }
 declare interface userTypes {
-    token: string;
-    user: RegisterTypes;
+    token?: string;
+    user?: RegisterTypes;
 }
 declare interface ResTypes {
     data: data;

@@ -45,7 +45,7 @@ export const conversationApi = apiSlice.injectEndpoints({
                                 if (draftData) {
                                     draftData.lastMessage = data.data.lastMessage;
                                     draftData.updatedAt = data.data.updatedAt;
-                                    draft.data.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+                                    draft.data.sort((a, b) => new Date(b.updatedAt).valueOf() - new Date(a.updatedAt).valueOf());
                                 }
                             });
                         }
@@ -77,9 +77,8 @@ export const conversationApi = apiSlice.injectEndpoints({
                 try {
                     const conversation = await queryFulfilled;
                     if (conversation?.data.data._id) {
-                        const patchResult = dispatch(
-                            apiSlice.util.updateQueryData("getConversations", data.sender.email, (draft) => {
-                                console.log(JSON.stringify(draft), "<=conversat add in draft");
+                        dispatch(
+                            apiSlice.util.updateQueryData("getConversations" as never, data.sender.email as never, (draft: any) => {
                                 draft.data.unshift(conversation.data.data);
                             }),
                         );

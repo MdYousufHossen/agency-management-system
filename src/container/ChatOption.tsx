@@ -6,7 +6,8 @@ import InputField from "~/components/InputField";
 import { useAddMessageMutation } from "~/feautres/message/message";
 
 const ChatOption = ({ info, conversationId }: { info: userType; conversationId: string }) => {
-    const user = useAppSelector((state) => state.auth.user) || {};
+    const user = useAppSelector((state) => state.auth.user);
+    if (!user) return null;
     const [text, setText] = useState("");
     const [addMessage, { data, isLoading, error: resErr, isError, isSuccess }] = useAddMessageMutation();
     const handleSubmit = (e: React.FormEvent) => {

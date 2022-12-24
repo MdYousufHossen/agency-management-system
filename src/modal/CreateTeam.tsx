@@ -16,7 +16,7 @@ const CreateTeam = ({ open, control }: ModalPropType) => {
     const [createTeam, { data, isLoading, error, isError, isSuccess }] = useCreateTeamMutation();
     const [name, setName] = useState<string>();
     const [description, setDescription] = useState<string>();
-
+    if (!user) return null;
     useEffect(() => {
         if (isSuccess) {
             control();

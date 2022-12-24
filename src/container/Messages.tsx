@@ -7,6 +7,7 @@ import ChatStyle from "~/styles/ChatApp";
 const Messages = ({ messages, totalCount }: { messages: messageType[]; totalCount: number }) => {
     const { id } = useParams<keyof { id: string }>() as { id: string };
     const user = useAppSelector((state) => state.auth.user);
+    if (!user) return null;
     // const [page, setPage] = useState<number>(1);
     // const fetchMore = () => {
     //     setPage((prevPage) => prevPage + 1);

@@ -16,8 +16,8 @@ export const teamApi = apiSlice.injectEndpoints({
                 const res = await queryFulfilled;
                 console.log("res", res.data.data);
                 dispatch(
-                    apiSlice.util.updateQueryData("getTeams", undefined, (draft) => {
-                        draft.data.push(res.data.data);
+                    apiSlice.util.updateQueryData("getTeams" as never, undefined as never, (draft: any) => {
+                        draft.data.unshift(res.data.data);
                     }),
                 );
             },

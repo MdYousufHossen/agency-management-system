@@ -18,7 +18,7 @@ const AddProject = ({ open, control }: ModalType) => {
     const [selectedTeam, setSelectedTeam] = useState<{ name: string; id: string }>();
     const user = useAppSelector((state) => state.auth.user);
     const [addProject, { data, isLoading: projectIsLoading, isSuccess }] = useAddProjectMutation();
-
+    if (!user) return null;
     useEffect(() => {
         if (isSuccess) {
             control();

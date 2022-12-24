@@ -17,6 +17,7 @@ const Conversations = () => {
     const controleModal = () => {
         setOpened((prevState) => !prevState);
     };
+    if (!user) return null;
     const { data, isLoading, error, isError } = useGetConversationsQuery(user.email);
     let content = null;
     if (isLoading) {

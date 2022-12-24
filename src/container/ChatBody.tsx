@@ -14,7 +14,7 @@ import Messages from "./Messages";
 const ChatBody = () => {
     const { id } = useParams<keyof { id: string }>() as { id: string };
     const user = useAppSelector((state) => state.auth.user);
-
+    if (!user) return null;
     const { data, isLoading, error, isError } = useGetMessagesQuery(id);
 
     let content = null;

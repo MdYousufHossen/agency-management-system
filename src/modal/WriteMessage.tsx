@@ -17,6 +17,7 @@ const WriteMessage = ({ open, control, email }: WriteMessageType) => {
     });
     const [AddConversation, { data: addConData, isLoading: AddConIsLoading, error: AddConError, isError: AddConIsError }] = useAddConversationMutation();
     const [message, setMessage] = useState<string>("");
+    if (!user) return null;
     const sender = {
         _id: user._id,
         email: user.email,
