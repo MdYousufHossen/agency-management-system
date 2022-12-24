@@ -3,6 +3,14 @@ import styled from "styled-components";
 interface MessageProps {
     partner?: boolean;
 }
+interface conversationProps {
+    justifyBetween?: boolean;
+    alignItemsStart?: boolean;
+    hover?: boolean;
+    margin?: string;
+    isActive?: boolean;
+    padding?: string;
+}
 
 const Conversations = styled.ul`
     list-style-type: none;
@@ -10,13 +18,23 @@ const Conversations = styled.ul`
     padding: 0;
 `;
 
-const Conversation = styled.li`
-    margin-bottom: 20px;
+const Conversation = styled.li<conversationProps>`
     display: flex;
-    align-items: center;
+
     cursor: pointer;
-    // background: gray;
     border-radius: 20px;
+
+    ${(p) =>
+        p.hover &&
+        ` &:hover {
+        background-color: #105b72c2;
+        color: white;
+    } `}
+
+    ${(p) => p.margin && `margin:${p.margin};`}
+    ${(p) => p.padding && `padding:${p.padding};`}
+    ${(p) => p.justifyBetween && `justify-content: space-between;`}
+    ${(p) => p.alignItemsStart && `align-items: flex-start;`}
 `;
 
 const avatar = styled.img`

@@ -25,6 +25,9 @@ interface ContainerProps {
     mobile?: {};
     styles?: {};
     overflowScrollX?: boolean;
+    overflowScrollY?: boolean;
+    hideScrollbar?: boolean;
+    opacity?: number;
 }
 
 const Container = styled.div<ContainerProps>`
@@ -47,16 +50,24 @@ const Container = styled.div<ContainerProps>`
     ${(p) => p.justifyBetween && `justify-content: space-between;`}
     ${(p) => p.overflowHidden && `overflow: hidden;`}
     ${(p) => p.overflowScrollX && `overflow-x: scroll;`}
-    ${(p) => (p.background ? `background-color: ${p.background};` : "background-color: transparent;")}
+    ${(p) => p.overflowScrollY && `overflow-y: scroll;`}
+    ${(p) => p.background && `background-color: ${p.background};`}
     ${(p) => p.shadowBox && `box-shadow: ${p.shadowBox};`}
     ${(p) => p.brt && `border-top-left-radius: ${p.brt};`}
     ${(p) => p.brt && `border-top-right-radius: ${p.brt};`}
     ${(p) => p.brb && `border-bottom-left-radius: ${p.brb};`}
     ${(p) => p.brb && `border-bottom-right-radius: ${p.brb};`}
+    ${(p) => p.opacity && `opacity:${p.opacity};`}
     ${(p) => p.styles};
     @media ${device.mobileL} {
         ${(p) => p.mobile}
     }
+    ${(p) =>
+        p.hideScrollbar &&
+        ` ::-webkit-scrollbar {
+        display: none;
+    }`}
 `;
 
 export default Container;
+// ` : "background-color: transparent;"

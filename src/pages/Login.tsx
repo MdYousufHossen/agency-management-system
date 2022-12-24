@@ -15,7 +15,6 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState<string | undefined>("");
     const [login, { data, isLoading, error: resErr, isError }] = useLoginMutation();
-    console.log(error, isError);
 
     const navigate = useNavigate();
 
@@ -30,7 +29,7 @@ const Login = () => {
                 setError(resErr.message);
             }
         }
-        if (data?.accessToken && data?.user) {
+        if (data?.data.token && data?.data.user) {
             navigate(ROUTES.DASHBOARD);
         }
     }, [data, resErr, navigate]);

@@ -7,7 +7,10 @@ export const PUBLIC_ROUTES = {
 export const PRIVATE_ROUTES = {
     DASHBOARD: "/dashboard",
     CHAT_APP: "/dashboard/chatapp",
-    PROJECTS: "/dashboard/projects",
+    INBOX: "/dashboard/chatapp/:id",
+    TEAM: "/dashboard/team",
+    PROJECTS: "/dashboard/project",
+    PAYMENT: "/payment",
 };
 
 const ROUTES = {

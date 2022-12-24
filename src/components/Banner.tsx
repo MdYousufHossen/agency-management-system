@@ -7,9 +7,13 @@ import Typography from "~/components/Typography";
 import ENGLISH from "~/constant/lang/english";
 import ROUTES from "~/constant/routes";
 import AppHeader from "~/container/AppHeader";
+import useAuth from "~/hooks/useAuth";
+import { UnderLine } from "~/styles/Banner";
 import StyledLink from "./StyledLink";
 
 const Banner = () => {
+    const isLoggedIn = useAuth();
+
     return (
         <ClipPathDiv>
             <AppHeader />
@@ -20,14 +24,22 @@ const Banner = () => {
                     </Typography>
                     <br />
                     <Typography color="#FFC947" variant="title1">
-                        &#8212; {ENGLISH.HOME_BANNER.SUB_TITLE}
+                        <UnderLine> &#8212; {ENGLISH.HOME_BANNER.SUB_TITLE}</UnderLine>
                     </Typography>
                     <Spacer height="20px" />
                     <Typography pr="20%" align="justify" color="white" variant="body1">
                         {ENGLISH.HOME_BANNER.DESCRIPTION}
                     </Typography>
                     <Button size="medium" mt="20px" bgColor="#F23936">
-                        <StyledLink to={ROUTES.LOGIN}>{ENGLISH.HOME_BANNER.BUTTON}</StyledLink>
+                        {!isLoggedIn ? (
+                            <StyledLink color="white" to={ROUTES.LOGIN}>
+                                {ENGLISH.HOME_BANNER.LOGIN}
+                            </StyledLink>
+                        ) : (
+                            <StyledLink color="white" to={ROUTES.DASHBOARD}>
+                                {ENGLISH.HOME_BANNER.DASHBOARD}
+                            </StyledLink>
+                        )}
                     </Button>
                 </Container>
                 <Container width="fit-content" mobile={{ display: "none" }}>

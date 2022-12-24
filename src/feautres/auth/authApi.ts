@@ -5,24 +5,24 @@ export const authApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         register: builder.mutation<ResTypes, Partial<RegisterTypes>>({
             query: (data) => ({
-                url: "/register",
+                url: "/user/signup",
                 method: "POST",
                 body: data,
             }),
             async onQueryStarted(data, { queryFulfilled, dispatch }) {
                 try {
-                    const result = await queryFulfilled;
+                    const { data } = await queryFulfilled;
                     localStorage.setItem(
                         "auth",
                         JSON.stringify({
-                            accessToken: result.data.accessToken,
-                            user: result.data.user,
+                            token: data.data.token,
+                            user: data.data.user,
                         }),
                     );
                     dispatch(
                         userLoggedIn({
-                            accessToken: result.data.accessToken,
-                            user: result.data.user,
+                            token: data.data.token,
+                            user: data.data.user,
                         }),
                     );
                 } catch {}
@@ -30,7 +30,7 @@ export const authApi = apiSlice.injectEndpoints({
         }),
         login: builder.mutation<ResTypes, Partial<Pick<RegisterTypes, "email" | "password">>>({
             query: (data) => ({
-                url: "/login",
+                url: "/user/login",
                 method: "POST",
                 body: data,
             }),
@@ -40,14 +40,14 @@ export const authApi = apiSlice.injectEndpoints({
                     localStorage.setItem(
                         "auth",
                         JSON.stringify({
-                            accessToken: result.data.accessToken,
-                            user: result.data.user,
+                            token: result.data.data.token,
+                            user: result.data.data.user,
                         }),
                     );
                     dispatch(
                         userLoggedIn({
-                            accessToken: result.data.accessToken,
-                            user: result.data.user,
+                            token: result.data.data.token,
+                            user: result.data.data.user,
                         }),
                     );
                 } catch {}

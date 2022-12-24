@@ -11,14 +11,14 @@ import Typography from "~/components/Typography";
 import ROUTES from "~/constant/routes";
 import { useRegisterMutation } from "~/feautres/auth/authApi";
 const Register = () => {
-    const [name, setName] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setpassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState<string | undefined>("");
-    const [register, { data, isLoading, error: resErr, isError }] = useRegisterMutation();
-
+    const [register, { data, isLoading, error: resErr, isSuccess, isError }] = useRegisterMutation();
     const navigate = useNavigate();
-
     useEffect(() => {
         if (resErr) {
             if ("status" in resErr) {
@@ -30,17 +30,20 @@ const Register = () => {
                 setError(resErr.message);
             }
         }
-        if (data?.accessToken && data?.user) {
-            navigate(ROUTES.DASHBOARD);
+
+        if (isSuccess) {
+            navigate(ROUTES.LOGIN);
         }
     }, [data, resErr, navigate]);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         register({
-            name,
+            firstName,
+            lastName,
             email,
             password,
+            confirmPassword,
         });
     };
 
@@ -51,10 +54,33 @@ const Register = () => {
                     <Icon name={ICON_NAME.Logo} width={50} height={50} />
                 </Container>
                 <Spacer height="20px" />
-                <form>
-                    <InputField error={error} required onChange={(e) => setName(e.target.value)} icon={ICON_NAME.IconPerson} label="Name" type="text" />
+                <form onSubmit={handleSubmit}>
+                    <InputField
+                        error={error}
+                        required
+                        onChange={(e) => setFirstName(e.target.value)}
+                        icon={ICON_NAME.IconPerson}
+                        label="First Name"
+                        type="text"
+                    />
+                    <InputField
+                        error={error}
+                        required
+                        onChange={(e) => setLastName(e.target.value)}
+                        icon={ICON_NAME.IconPerson}
+                        label="Last Name"
+                        type="text"
+                    />
                     <InputField error={error} required onChange={(e) => setEmail(e.target.value)} icon={ICON_NAME.IconEmail} label="Email" type="email" />
                     <InputField error={error} required onChange={(e) => setpassword(e.target.value)} icon={ICON_NAME.Lock} label="Password" type="password" />
+                    <InputField
+                        error={error}
+                        required
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        icon={ICON_NAME.Lock}
+                        label="Confirm Password"
+                        type="password"
+                    />
                     <Container width="fit-content">
                         <Button size="large" variant="contained">
                             {isLoading ? <PuffLoader size={25} color="" /> : "Register"}

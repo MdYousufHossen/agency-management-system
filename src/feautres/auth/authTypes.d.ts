@@ -1,11 +1,22 @@
 declare interface RegisterTypes {
-    name: string;
+    updatedAt: any;
+    _id?: string;
+    firstName: string;
+    lastName: string;
     email: string;
+    role?: string;
     password: string;
+    confirmPassword: string;
     avatar: string;
     status?: string;
+    createdAt?: string;
+    confirmationToken?: string;
+    confirmationTokenExpires?: string;
+}
+declare interface userTypes {
+    token: string;
+    user: RegisterTypes;
 }
 declare interface ResTypes {
-    accessToken: undefined | string;
-    user: undefined | RegisterTypes;
+    data: data;
 }
