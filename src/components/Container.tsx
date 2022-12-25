@@ -28,6 +28,7 @@ interface ContainerProps {
     overflowScrollY?: boolean;
     hideScrollbar?: boolean;
     opacity?: number;
+    clickable?: boolean;
 }
 
 const Container = styled.div<ContainerProps>`
@@ -59,6 +60,7 @@ const Container = styled.div<ContainerProps>`
     ${(p) => p.brb && `border-bottom-right-radius: ${p.brb};`}
     ${(p) => p.opacity && `opacity:${p.opacity};`}
     ${(p) => p.styles};
+    ${(p) => p.clickable && `cursor:pointer;`}
     @media ${device.mobileL} {
         ${(p) => p.mobile}
     }

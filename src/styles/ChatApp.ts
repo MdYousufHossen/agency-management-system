@@ -37,10 +37,11 @@ const Conversation = styled.li<conversationProps>`
     ${(p) => p.alignItemsStart && `align-items: flex-start;`}
 `;
 
-const avatar = styled.img`
+const avatar = styled.img<{ toggle?: string }>`
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    ${(p) => p.toggle && `display:${p.toggle};`}
 `;
 
 const messages = styled.ul`

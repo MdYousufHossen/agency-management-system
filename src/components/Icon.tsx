@@ -7,6 +7,7 @@ import { ReactComponent as ArrowLeft } from "~/assets/icons/arrowLeft.svg";
 import { ReactComponent as Calender } from "~/assets/icons/calender.svg";
 import { ReactComponent as Call } from "~/assets/icons/call.svg";
 import { ReactComponent as Cart } from "~/assets/icons/cart.svg";
+import { ReactComponent as Chat } from "~/assets/icons/chat.svg";
 import { ReactComponent as customerTrust } from "~/assets/icons/customerTrust.svg";
 import { ReactComponent as IconEmail } from "~/assets/icons/email.svg";
 import { ReactComponent as fedEx } from "~/assets/icons/fedEx.svg";
@@ -20,6 +21,7 @@ import { ReactComponent as Linkedin } from "~/assets/icons/linkedin.svg";
 import { ReactComponent as Location } from "~/assets/icons/location.svg";
 import { ReactComponent as Lock } from "~/assets/icons/Lock.svg";
 import { ReactComponent as Logo } from "~/assets/icons/logo.svg";
+import { ReactComponent as Menu } from "~/assets/icons/menu.svg";
 import { ReactComponent as MessageSend } from "~/assets/icons/messageSend.svg";
 import { ReactComponent as microsoft } from "~/assets/icons/microsoft.svg";
 import { ReactComponent as Mobile } from "~/assets/icons/mobile.svg";
@@ -31,13 +33,17 @@ import { ReactComponent as openingTime } from "~/assets/icons/openingTimes.svg";
 import { ReactComponent as OYO } from "~/assets/icons/OYO.svg";
 import { ReactComponent as IconPerson } from "~/assets/icons/person.svg";
 import { ReactComponent as PhoneIcon } from "~/assets/icons/phoneIcon.svg";
+import { ReactComponent as Project } from "~/assets/icons/project.svg";
 import { ReactComponent as Search } from "~/assets/icons/search.svg";
 import { ReactComponent as secureWeb } from "~/assets/icons/secureWeb.svg";
 import { ReactComponent as security } from "~/assets/icons/security.svg";
 import { ReactComponent as Share } from "~/assets/icons/share.svg";
+import { ReactComponent as Task } from "~/assets/icons/task.svg";
+import { ReactComponent as Team } from "~/assets/icons/team.svg";
 import { ReactComponent as testing } from "~/assets/icons/testing.svg";
 import { ReactComponent as Trash } from "~/assets/icons/trash.svg";
 import { ReactComponent as Twitter } from "~/assets/icons/twitter.svg";
+import { ReactComponent as AddUser } from "~/assets/icons/user-add.svg";
 import { ReactComponent as walmart } from "~/assets/icons/walmart.svg";
 import { ReactComponent as WebSite } from "~/assets/icons/website.svg";
 import AbsoluteContent from "./AbsoluteContent";
@@ -105,6 +111,12 @@ const ICON = {
     MessageSend,
     More,
     Add,
+    Team,
+    Project,
+    Task,
+    Chat,
+    Menu,
+    AddUser,
 };
 
 export const ICON_NAME: { [key: string]: string } = {
@@ -148,6 +160,12 @@ export const ICON_NAME: { [key: string]: string } = {
     messageSend: "MessageSend",
     More: "More",
     Add: "Add",
+    Team: "Team",
+    Project: "Project",
+    Chat: "Chat",
+    Task: "Task",
+    Menu: "Menu",
+    AddUser: "AddUser",
 };
 
 export interface IconProps {

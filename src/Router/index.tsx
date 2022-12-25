@@ -12,6 +12,7 @@ import Login from "~/pages/Login";
 import Payment from "~/pages/Payment";
 import ProjectManagement from "~/pages/ProjectManagement";
 import Register from "~/pages/Register";
+import Task from "~/pages/Task";
 import Team from "~/pages/Team";
 import { AdminRoute, DashboardRoute, PrivateRoute, PublicRouteHandler } from "./RouteHandler";
 
@@ -84,6 +85,7 @@ export default memo(() => {
                             </AdminRoute>
                         }
                     />
+
                     <Route
                         path={ROUTES.PROJECTS}
                         element={
@@ -92,6 +94,14 @@ export default memo(() => {
                                     <ProjectManagement />
                                 </AdminRoute>
                             </DndProvider>
+                        }
+                    />
+                    <Route
+                        path={ROUTES.TASK}
+                        element={
+                            <AdminRoute>
+                                <Task />
+                            </AdminRoute>
                         }
                     />
                 </Route>

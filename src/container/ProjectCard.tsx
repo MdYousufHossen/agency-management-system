@@ -5,7 +5,7 @@ import Icon, { ICON_NAME } from "~/components/Icon";
 import Typography from "~/components/Typography";
 import TeamStyle from "~/styles/Team";
 
-const ProjectCard = ({ project }: { project: projectType }) => {
+const ProjectCard = ({ project, backlog }: { project: projectType; backlog?: boolean }) => {
     // const {user}=useSelector((state)=>state.auth)
     const [{ isDragging }, drag] = useDrag({
         type: "project",
@@ -15,7 +15,6 @@ const ProjectCard = ({ project }: { project: projectType }) => {
         }),
         // canDrag:user?.status==="admin"
     });
-    // background="#C5D5FE"
     return (
         <Container
             background="#C5D5FE"
@@ -27,12 +26,14 @@ const ProjectCard = ({ project }: { project: projectType }) => {
             brb="15px"
             width="300px"
             height="150px"
+            clickable
         >
             <Container width="100%" pt="10px" displayFlex justifyBetween>
                 <Typography color="white" background="#7cbdbf" br="10px" pl="5px" pr="5px" variant="body2">
                     {project.name} team of <span style={{ color: "black" }}> {project.team.name}</span>
                 </Typography>
-                <Icon name={ICON_NAME.Trash} height={20} width={20} />
+
+                {backlog && <Icon name={ICON_NAME.Trash} height={20} width={20} />}
             </Container>
             <Typography pt="10px" pb="10px" variant="body2">
                 {project.description}

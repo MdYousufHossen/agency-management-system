@@ -1,3 +1,5 @@
+import ROUTES from "../routes";
+
 const ENGLISH = {
     HOME_BANNER: {
         TITLE: "Making your",
@@ -13,6 +15,28 @@ const ENGLISH = {
         MENU: "Menu",
         CONTACT_US: "Contact us",
     },
+    DASHBOARD_NAVIGATION: [
+        {
+            name: "chat app",
+            link: "/dashboard/chatapp",
+            logo: "Chat",
+        },
+        {
+            name: "Team Manager",
+            link: ROUTES.TEAM,
+            logo: "Team",
+        },
+        {
+            name: "Project Management",
+            link: ROUTES.PROJECTS,
+            logo: "Project",
+        },
+        {
+            name: "Task Manager",
+            link: ROUTES.TASK,
+            logo: "Task",
+        },
+    ],
 };
 
 export default ENGLISH;

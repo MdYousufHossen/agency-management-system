@@ -35,7 +35,7 @@ const Backlog = ({ data }: { data: projectType[] }) => {
 
             <Container width="330px" height="fit-content" displayFlex flexCol gap="10px">
                 {data.map((project) => (
-                    <ProjectCard key={project._id as unknown as number} project={project} />
+                    <ProjectCard backlog key={project._id as unknown as number} project={project} />
                 ))}
             </Container>
         </div>

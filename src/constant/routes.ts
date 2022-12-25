@@ -9,6 +9,7 @@ export const PRIVATE_ROUTES = {
     CHAT_APP: "/dashboard/chatapp",
     INBOX: "/dashboard/chatapp/:id",
     TEAM: "/dashboard/team",
+    TASK: "/dashboard/task",
     PROJECTS: "/dashboard/project",
     PAYMENT: "/payment",
 };

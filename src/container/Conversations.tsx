@@ -32,7 +32,11 @@ const Conversations = () => {
     } else if (!isLoading && isError) {
         content = <Typography variant="body1">Error</Typography>;
     } else if (!isLoading && !isError && data?.data.length === 0) {
-        content = <Typography variant="body1">Teams not found!</Typography>;
+        content = (
+            <Container>
+                <Typography variant="body1">Teams not found!</Typography>
+            </Container>
+        );
     } else if (!isLoading && !isError && data && data.data.length > 0) {
         content = (
             <Container height="85vh" background="none" width="90%" hideScrollbar overflowHidden overflowScrollY>
@@ -42,10 +46,6 @@ const Conversations = () => {
             </Container>
         );
     }
-    // const emails = data?.data.map((item) => {
-    //     const itemdata = item?.user.find((item) => item.email != user.email);
-    //     return itemdata?.email;
-    // });
 
     return (
         <Fragment>
@@ -53,11 +53,11 @@ const Conversations = () => {
                 <ChatStyle.Conversations>
                     <Container width="100%" displayFlex alignItemsCenter>
                         <Container width="fit-content">
-                            <InputField placeholder={user.firstName} width="100%" height="35px" type="search" icon={ICON_NAME.Search} />
+                            <InputField width="100%" height="35px" type="search" icon={ICON_NAME.Search} />
                         </Container>
                         <Spacer flex />
                         <Container width="fit-content">
-                            <Icon name={ICON_NAME.Calender} onClick={controleModal} height={25} width={25} />
+                            <Icon name={ICON_NAME.AddUser} onClick={controleModal} height={25} width={25} />
                         </Container>
                     </Container>
 

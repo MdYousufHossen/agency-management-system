@@ -49,8 +49,22 @@ const Login = () => {
                 </Container>
                 <Spacer height="20px" />
                 <form onSubmit={handleSubmit}>
-                    <InputField error={error} required onChange={(e) => setEmail(e.target.value)} icon={ICON_NAME.IconEmail} label="Email" type="email" />
-                    <InputField error={error} required onChange={(e) => setPassword(e.target.value)} icon={ICON_NAME.Lock} label="Password" type="password" />
+                    <InputField
+                        error={error ? "Error occurred" : ""}
+                        required
+                        onChange={(e) => setEmail(e.target.value)}
+                        icon={ICON_NAME.IconEmail}
+                        label="Email"
+                        type="email"
+                    />
+                    <InputField
+                        error={error ? "Error occurred" : ""}
+                        required
+                        onChange={(e) => setPassword(e.target.value)}
+                        icon={ICON_NAME.Lock}
+                        label="Password"
+                        type="password"
+                    />
 
                     <Container width="fit-content">
                         <Button size="small" variant="contained">
