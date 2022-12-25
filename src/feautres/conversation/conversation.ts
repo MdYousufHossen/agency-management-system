@@ -19,7 +19,7 @@ export const conversationApi = apiSlice.injectEndpoints({
             query: (email: string) => `/chat/conversation?email=${email}`,
             async onCacheEntryAdded(arg, { updateCachedData, cacheDataLoaded, cacheEntryRemoved }) {
                 //create socket
-                const socket = io(process.env.VITE_API_URL as string, {
+                const socket = io(import.meta.env.VITE_API_URL as string, {
                     query: {
                         conversationId: arg,
                     },
