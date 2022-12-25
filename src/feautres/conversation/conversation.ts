@@ -19,7 +19,7 @@ export const conversationApi = apiSlice.injectEndpoints({
             query: (email: string) => `/chat/conversation?email=${email}`,
             async onCacheEntryAdded(arg, { updateCachedData, cacheDataLoaded, cacheEntryRemoved }) {
                 //create socket
-                const socket = io("http://localhost:8080", {
+                const socket = io(process.env.VITE_API_URL as string, {
                     query: {
                         conversationId: arg,
                     },
@@ -36,8 +36,6 @@ export const conversationApi = apiSlice.injectEndpoints({
                 try {
                     await cacheDataLoaded;
                     socket.on("conversation", (data: any) => {
-                        // console.log(data.data);
-
                         const isEmailVisible = data.data.user.find((item: any) => item.email == arg);
                         if (isEmailVisible) {
                             updateCachedData((draft) => {
@@ -50,9 +48,7 @@ export const conversationApi = apiSlice.injectEndpoints({
                             });
                         }
                     });
-                } catch (err) {
-                    console.log(err);
-                }
+                } catch (err) {}
                 await cacheEntryRemoved;
                 socket.close();
             },
@@ -92,9 +88,7 @@ export const conversationApi = apiSlice.injectEndpoints({
                         );
                         // update conversation cache
                     }
-                } catch (err) {
-                    console.log(err);
-                }
+                } catch (err) {}
             },
         }),
     }),

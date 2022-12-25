@@ -25,7 +25,7 @@ export const messageApi = apiSlice.injectEndpoints({
 
             async onCacheEntryAdded(arg, { updateCachedData, cacheDataLoaded, cacheEntryRemoved }) {
                 //create socket
-                const socket = io("http://localhost:8080", {
+                const socket = io(process.env.VITE_API_URL as string, {
                     query: {
                         conversationId: arg,
                     },
@@ -48,9 +48,7 @@ export const messageApi = apiSlice.injectEndpoints({
                             });
                         }
                     });
-                } catch (err) {
-                    console.log(err);
-                }
+                } catch (err) {}
                 await cacheEntryRemoved;
                 socket.close();
             },
@@ -61,7 +59,6 @@ export const messageApi = apiSlice.injectEndpoints({
             async onQueryStarted({ id }, { queryFulfilled, dispatch }) {
                 try {
                     const messages = await queryFulfilled;
-                    console.log("getMoreMessages", messages);
                     if (messages.data.data.messages.length > 0) {
                         // dispatch(
                         //     apiSlice.util.updateQueryData("getMessages", id, (draft) => {

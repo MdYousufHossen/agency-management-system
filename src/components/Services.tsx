@@ -70,7 +70,7 @@ const Services = () => {
             <Spacer height="50px" />
             <Container width="90%" displayFlex flexWrape alignItemsCenter justifyContentCenter gap="25px">
                 {services.map((s) => (
-                    <Card>
+                    <Card key={s.id}>
                         <Icon name={ICON_NAME[s.icon]} height={50} width={50} />
                         <Spacer height="20px" />
                         <Typography variant="title3" color="black">

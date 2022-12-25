@@ -21,7 +21,7 @@ const TeamCard = ({ team }: { team: TeamType }) => {
                 </Container>
                 <Container pt="15px" pl="10px" pr="10px" gap="10px" displayFlex flexWrape width="100%">
                     {team.user.map((user) => (
-                        <TeamStyle.Avater src="https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg" alt="" />
+                        <TeamStyle.Avater key={user._id} src="https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg" alt="" />
                     ))}
                 </Container>
                 <Typography pl="10px" pr="10px" pt="10px" variant="body2">

@@ -40,7 +40,6 @@ const CreateTeam = ({ open, control }: ModalPropType) => {
             description,
             user: [author],
         });
-        console.log({ name, description });
     };
     return open ? (
         <Fragment>

@@ -18,7 +18,6 @@ const Messages = ({ messages, totalCount }: { messages: messageType[]; totalCoun
     // useEffect(() => {
     //     if (totalCount > 0) {
     //         const more = Math.ceil(totalCount / 10) > page;
-    //         console.log("more", more);
     //         setHasMore(more);
     //     }
     // }, [totalCount, page]);

@@ -34,25 +34,27 @@ const Team = () => {
         );
     } else if (!isLoading && !isError && data && data.data.length > 0) {
         content = (
-            <Fragment>
-                <Container overflowScrollY hideScrollbar width="100%" height="100%">
-                    <Container width="80%" pt="20px" pb="20px" displayFlex justifyBetween alignItemsCenter>
-                        <Typography align="center" variant="title2">
-                            All Teams
-                        </Typography>
-                        <Icon name={ICON_NAME.Add} height={25} width={25} onClick={controleModal} />
-                    </Container>
-                    <Container justifyContentCenter displayFlex flexWrape width="90%" gap="20px">
-                        {data?.data.map((team) => {
-                            return <TeamCard team={team} />;
-                        })}
-                    </Container>
-                    <CreateTeam control={controleModal} open={opened} />
-                </Container>
-            </Fragment>
+            <Container justifyContentCenter displayFlex flexWrape width="90%" gap="20px">
+                {data?.data.map((team: TeamType) => {
+                    return <TeamCard key={team._id as unknown as string} team={team} />;
+                })}
+            </Container>
         );
     }
-    return content;
+    return (
+        <Fragment>
+            <Container overflowScrollY hideScrollbar width="100%" height="100%">
+                <Container width="80%" pt="20px" pb="20px" displayFlex justifyBetween alignItemsCenter>
+                    <Typography align="center" variant="title2">
+                        All Teams
+                    </Typography>
+                    <Icon name={ICON_NAME.Add} height={25} width={25} onClick={controleModal} />
+                </Container>
+                {content}
+                <CreateTeam control={controleModal} open={opened} />
+            </Container>
+        </Fragment>
+    );
 };
 
 export default Team;

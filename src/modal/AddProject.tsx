@@ -44,7 +44,6 @@ const AddProject = ({ open, control }: ModalType) => {
             team: selectedTeam,
             author,
         });
-        console.log({ name, description, team: selectedTeam });
     };
 
     let content = null;

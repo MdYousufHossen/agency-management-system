@@ -18,7 +18,12 @@ const ProjectManagement = () => {
     } else if (!isLoading && isError) {
         content = <Typography variant="title4">Error</Typography>;
     } else if (!isLoading && !isError && data?.data.length === 0) {
-        content = <Typography variant="title4">Project is not found</Typography>;
+        const backlog = data.data.filter((p) => p.status === "Backlog");
+        content = (
+            <Container width="100%" padding="10px" displayFlex gap="20px">
+                <Backlog data={backlog} />
+            </Container>
+        );
     } else if (!isLoading && !isError && data && data?.data.length > 0) {
         const backlog = data.data.filter((p) => p.status === "Backlog");
         const blocked = data.data.filter((p) => p.status === "Blocked");
