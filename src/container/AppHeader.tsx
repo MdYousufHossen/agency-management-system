@@ -1,11 +1,14 @@
 import { Fragment, memo } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useAppDispatch } from "~/app/hooks";
 import Container from "~/components/Container";
 import Icon, { ICON_NAME } from "~/components/Icon";
 import Spacer from "~/components/Spacer";
 import Typography from "~/components/Typography";
 import ROUTES from "~/constant/routes";
+import { userLoggedOut } from "~/feautres/auth/authSlice";
+import useAuth from "~/hooks/useAuth";
 
 const StyledWrapper = {
     Wrapper: styled.div`
@@ -32,33 +35,13 @@ const StyledWrapper = {
 };
 
 const AppHeader = memo(() => {
-    // const lang = useLang();
-
-    // const currentRoute = useCurrentRoute();
+    const dispatch = useAppDispatch();
+    const isLoggedIn = useAuth();
+    const logout = () => {
+        dispatch(userLoggedOut());
+        localStorage.clear();
+    };
     const navigate = useNavigate();
-
-    // const goBack = useCallback(() => {
-    //     if (currentRoute === ROUTES.HOME) {
-    //         navigate(0);
-    //     } else if (currentRoute === ROUTES.CATEGORY) {
-    //         navigate(ROUTES.HOME);
-    //     } else if (currentRoute === ROUTES.CART) {
-    //         navigate(ROUTES.HOME);
-    //     } else if (currentRoute === ROUTES.CART_PERSON) {
-    //         // MUST GET CART PATH
-    //         navigate(ROUTES.CART);
-    //     } else if (currentRoute === ROUTES.ITEM) {
-    //         navigate(ROUTES.HOME);
-    //     } else if (currentRoute === ROUTES.INVOICE) {
-    //         navigate(ROUTES.HOME);
-    //     } else if (currentRoute === ROUTES.PAYMENT_GATEWAY) {
-    //         navigate(ROUTES.HOME);
-    //     } else if (currentRoute === ROUTES.RECEIPT) {
-    //         navigate(ROUTES.HOME);
-    //     }
-    // }, [currentRoute]);
-
-    // const isHome = currentRoute === ROUTES.HOME;
 
     return (
         <Fragment>
@@ -72,20 +55,25 @@ const AppHeader = memo(() => {
                 <Container width="fit-content">
                     <Container displayFlex alignItemsCenter width="fit-content">
                         <StyledWrapper.StyledLink to={ROUTES.HOME}>
-                            <Typography margin="0 10px" variant="title5">
+                            <Typography color="white" margin="0 10px" variant="title5">
                                 Home
                             </Typography>
                         </StyledWrapper.StyledLink>
                         <StyledWrapper.StyledLink to={ROUTES.HOME}>
-                            <Typography margin="0 10px" variant="title5">
+                            <Typography color="white" margin="0 10px" variant="title5">
                                 About_us
                             </Typography>
                         </StyledWrapper.StyledLink>
                         <StyledWrapper.StyledLink to={ROUTES.HOME}>
-                            <Typography margin="0 10px" variant="title5">
+                            <Typography color="white" margin="0 10px" variant="title5">
                                 Contact us
                             </Typography>
                         </StyledWrapper.StyledLink>
+                        {isLoggedIn && (
+                            <Typography color="white" clickable onClick={logout} margin="0 10px" variant="title5">
+                                LogOut
+                            </Typography>
+                        )}
                     </Container>
                 </Container>
             </Container>

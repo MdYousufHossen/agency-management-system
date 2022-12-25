@@ -15,6 +15,7 @@ interface buttonType {
     mr?: string;
     mb?: string;
     ml?: string;
+    hoverStyle?: {};
 }
 
 const sizeStyle: { [key: string]: { [key: string]: string } } = {
@@ -97,6 +98,7 @@ export const Button = styled.button<buttonType>`
     opacity: 0.8;
     &:hover {
         opacity: 1;
+        ${(p) => p.hoverStyle}
     }
     fontsize: 14px;
     cursor: pointer;

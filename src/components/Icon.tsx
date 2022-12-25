@@ -1,5 +1,6 @@
 import { memo, MouseEventHandler } from "react";
 import styled from "styled-components";
+import { ReactComponent as Add } from "~/assets/icons/add.svg";
 import { ReactComponent as airbnb } from "~/assets/icons/airbnb.svg";
 import { ReactComponent as amazon } from "~/assets/icons/amazon.svg";
 import { ReactComponent as ArrowLeft } from "~/assets/icons/arrowLeft.svg";
@@ -23,6 +24,7 @@ import { ReactComponent as MessageSend } from "~/assets/icons/messageSend.svg";
 import { ReactComponent as microsoft } from "~/assets/icons/microsoft.svg";
 import { ReactComponent as Mobile } from "~/assets/icons/mobile.svg";
 import { ReactComponent as ModalTrash } from "~/assets/icons/modalTrash.svg";
+import { ReactComponent as More } from "~/assets/icons/more.svg";
 import { ReactComponent as network } from "~/assets/icons/network.svg";
 import { ReactComponent as OLA } from "~/assets/icons/OLA.svg";
 import { ReactComponent as openingTime } from "~/assets/icons/openingTimes.svg";
@@ -40,7 +42,6 @@ import { ReactComponent as walmart } from "~/assets/icons/walmart.svg";
 import { ReactComponent as WebSite } from "~/assets/icons/website.svg";
 import AbsoluteContent from "./AbsoluteContent";
 import EmptyHolderDiv from "./EmptyHolderDiv";
-
 interface StyledContainerProps {
     color?: string;
     clickable?: boolean;
@@ -102,9 +103,11 @@ const ICON = {
     security,
     network,
     MessageSend,
+    More,
+    Add,
 };
 
-export const ICON_NAME = {
+export const ICON_NAME: { [key: string]: string } = {
     ArrowLeft: "ArrowLeft",
     Cart: "Cart",
     Filter: "Filter",
@@ -143,6 +146,8 @@ export const ICON_NAME = {
     security: "security",
     network: "network",
     messageSend: "MessageSend",
+    More: "More",
+    Add: "Add",
 };
 
 export interface IconProps {

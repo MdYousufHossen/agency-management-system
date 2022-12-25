@@ -2,6 +2,7 @@ import { memo } from "react";
 import { NavLink } from "react-router-dom";
 import Container from "~/components/Container";
 import Icon, { ICON_NAME } from "~/components/Icon";
+import ROUTES from "~/constant/routes";
 import NavigationStyle from "~/styles/Navigation";
 
 const DNavigation = memo(({ checked, setChecked }: { checked: Boolean; setChecked: React.Dispatch<React.SetStateAction<Boolean>> }) => {
@@ -12,8 +13,13 @@ const DNavigation = memo(({ checked, setChecked }: { checked: Boolean; setChecke
             // logo: Icons.StudentApplication,
         },
         {
-            name: "projects",
-            link: "/dashboard/projects",
+            name: "Team",
+            link: ROUTES.TEAM,
+            // logo: Icons.StudentApplication,
+        },
+        {
+            name: "Project Management",
+            link: ROUTES.PROJECTS,
             // logo: Icons.StudentApplication,
         },
     ];

@@ -11,15 +11,15 @@ const TrustedWraper = styled.div`
 const Trusted = styled.div`
     margin: 20px;
 `;
-
+// { [key: string]: string }
 const TrustedBy = () => {
     const trusted = ["airbnb", "amazon", "fedEx", "google", "microsoft", "OLA", "walmart", "OYO"];
-    console.log(ICON_NAME["walmart"]);
+
     return (
         <TrustedWraper>
-            {trusted.map((tr) => {
+            {trusted.map((tr: string) => {
                 return (
-                    <Trusted>
+                    <Trusted key={tr}>
                         <Icon name={ICON_NAME[tr]} width={120} height={35} />
                     </Trusted>
                 );

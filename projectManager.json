@@ -1,0 +1,311 @@
+{
+    "users": [
+        {
+            "email": "yousuf@gmail.com",
+            "password": "$2a$10$w7qf.cXhJQYfiOjdnBbeIuDNvR7560Ir/mIcaydnBZV7m6HkYMj2u",
+            "name": "Abu Yousuf",
+            "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-1514_thumb.jpg",
+            "id": 1,
+            "status": "admin"
+        },
+        {
+            "email": "mokhles@gmail.com",
+            "password": "$2a$10$l8uxmhXXydMDon9U89WH9elU9AorQm2igs0OEJOCDWQEyiu/gtTrO",
+            "name": "Mokhless",
+            "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "id": 2
+        },
+        {
+            "email": "test@test.com",
+            "password": "$2a$10$q5XYI5Lnzsa7zYO2rkbMd.m0ShIYcXtllKtaeIMsdQq6qPKToKZrO",
+            "name": "test",
+            "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg",
+            "id": 3
+        },
+        {
+            "email": "sumiyousuf@gmail.com",
+            "password": "$2a$10$nE3LZRTd2HxvKubAo2tLZuWVeKeWP/rFiRynRUuoFtXcDajcfzozG",
+            "name": "sumi yousuf",
+            "avatar": "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "id": 4
+        },
+        {
+            "email": "mahirZein@gmail.com",
+            "password": "$2a$10$e1M6tTovW1fY7BeRp9kuVeo9v6rkIUW5Lyh1k2UKt6ru45IvyP9gq",
+            "name": "Mahir Zein",
+            "avatar": "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "id": 5
+        }
+    ],
+    "teams": [
+        {
+            "name": "Design",
+            "desc": "Design is the part of life.",
+            "date": "2022-09-22T15:52:43.442Z",
+            "member": "sumiyousuf@gmail.com-test@test.com-mokhles@gmail.com-mahirZein@gmail.com",
+            "users": [
+                {
+                    "email": "sumiyousuf@gmail.com",
+                    "name": "sumi yousuf",
+                    "avatar": "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    "id": 4
+                },
+                {
+                    "email": "test@test.com",
+                    "name": "test",
+                    "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg",
+                    "id": 3
+                },
+                {
+                    "email": "mokhles@gmail.com",
+                    "name": "Mokhless",
+                    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    "id": 2
+                },
+                {
+                    "name": "Mahir Zein",
+                    "email": "mahirZein@gmail.com",
+                    "avatar": "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    "id": 5
+                }
+            ],
+            "id": 1
+        },
+        {
+            "name": "job ",
+            "desc": "dfeef",
+            "date": "2022-09-22T15:53:42.402Z",
+            "member": "yousuf@gmail.com-mahirZein@gmail.com-sumiyousuf@gmail.com-mokhles@gmail.com-test@test.com",
+            "users": [
+                {
+                    "email": "yousuf@gmail.com",
+                    "name": "Abu Yousuf",
+                    "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-1514_thumb.jpg",
+                    "id": 1
+                },
+                {
+                    "email": "mahirZein@gmail.com",
+                    "name": "Mahir Zein",
+                    "avatar": "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    "id": 5
+                },
+                {
+                    "email": "sumiyousuf@gmail.com",
+                    "name": "sumi yousuf",
+                    "avatar": "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    "id": 4
+                },
+                {
+                    "email": "mokhles@gmail.com",
+                    "name": "Mokhless",
+                    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    "id": 2
+                },
+                {
+                    "name": "test",
+                    "email": "test@test.com",
+                    "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg",
+                    "id": 3
+                }
+            ],
+            "id": 2
+        },
+        {
+            "name": "Tech ",
+            "desc": "hellodf",
+            "date": "2022-09-22T15:54:22.897Z",
+            "member": "sumiyousuf@gmail.com-test@test.com-mokhles@gmail.com-yousuf@gmail.com-mahirZein@gmail.com",
+            "users": [
+                {
+                    "email": "sumiyousuf@gmail.com",
+                    "name": "sumi yousuf",
+                    "avatar": "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    "id": 4
+                },
+                {
+                    "email": "test@test.com",
+                    "name": "test",
+                    "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg",
+                    "id": 3
+                },
+                {
+                    "email": "mokhles@gmail.com",
+                    "name": "Mokhless",
+                    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    "id": 2
+                },
+                {
+                    "email": "yousuf@gmail.com",
+                    "name": "Abu Yousuf",
+                    "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-1514_thumb.jpg",
+                    "id": 1
+                },
+                {
+                    "name": "Mahir Zein",
+                    "email": "mahirZein@gmail.com",
+                    "avatar": "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    "id": 5
+                }
+            ],
+            "id": 3
+        },
+        {
+            "name": "hello",
+            "desc": "dfdf",
+            "date": "2022-09-22T16:39:52.770Z",
+            "member": "mahirZein@gmail.com-test@test.com",
+            "users": [
+                {
+                    "email": "mahirZein@gmail.com",
+                    "name": "Mahir Zein",
+                    "avatar": "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    "id": 5
+                },
+                {
+                    "name": "test",
+                    "email": "test@test.com",
+                    "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg",
+                    "id": 3
+                }
+            ],
+            "id": 4
+        },
+        {
+            "name": "Dr.mafiya",
+            "desc": "dfdfd",
+            "date": "2022-09-22T16:41:13.005Z",
+            "member": "mahirZein@gmail.com",
+            "users": [
+                {
+                    "name": "Mahir Zein",
+                    "email": "mahirZein@gmail.com",
+                    "avatar": "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    "id": 5
+                }
+            ],
+            "id": 5
+        }
+    ],
+    "projects": [
+        {
+            "title": "Mr.mafiya",
+            "desc": "This is for Mr.mafiya",
+            "team": {
+                "id": 1,
+                "name": "Design"
+            },
+            "author": {
+                "name": "test",
+                "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg"
+            },
+            "date": "2022-09-23T09:33:57.632Z",
+            "status": "done",
+            "id": 1
+        },
+        {
+            "title": "Todo",
+            "desc": "Todo is awesome thing for beginners.",
+            "team": {
+                "id": 3,
+                "name": "Tech "
+            },
+            "author": {
+                "name": "test",
+                "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg"
+            },
+            "date": "2022-09-23T09:49:02.088Z",
+            "status": "review",
+            "id": 2
+        },
+        {
+            "title": "Expence Tracker",
+            "desc": "Track your money.",
+            "team": {
+                "id": 3,
+                "name": "Tech "
+            },
+            "author": {
+                "name": "Abu Yousuf",
+                "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-1514_thumb.jpg"
+            },
+            "date": "2022-09-23T09:52:31.167Z",
+            "status": "backlog",
+            "id": 3
+        },
+        {
+            "title": "Chat-application",
+            "desc": "This is a Chat application with redux.",
+            "team": {
+                "id": 3,
+                "name": "Tech "
+            },
+            "author": {
+                "name": "Abu Yousuf",
+                "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-1514_thumb.jpg"
+            },
+            "date": "2022-09-23T10:05:31.803Z",
+            "status": "backlog",
+            "id": 4
+        },
+        {
+            "title": "Project Manager",
+            "desc": "Project manager, it's our final task.",
+            "team": {
+                "id": 3,
+                "name": "Tech "
+            },
+            "author": {
+                "name": "Abu Yousuf",
+                "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-1514_thumb.jpg"
+            },
+            "date": "2022-09-23T10:22:56.614Z",
+            "status": "blocked",
+            "id": 5
+        },
+        {
+            "title": "Hello ",
+            "desc": "Hello hello hello ..............",
+            "team": {
+                "id": 1,
+                "name": "Design"
+            },
+            "author": {
+                "name": "test",
+                "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg"
+            },
+            "date": "2022-09-23T14:13:52.107Z",
+            "status": "ready",
+            "id": 6
+        },
+        {
+            "title": "Dr.mafiya",
+            "desc": "Doctor mafiya ",
+            "team": {
+                "id": 5,
+                "name": "Tech "
+            },
+            "author": {
+                "name": "test",
+                "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg"
+            },
+            "date": "2022-09-23T14:14:31.399Z",
+            "status": "backlog",
+            "id": 7
+        },
+        {
+            "title": "job ",
+            "desc": "jobbbbb",
+            "team": {
+                "id": 1,
+                "name": "Design"
+            },
+            "author": {
+                "name": "test",
+                "avatar": "https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg"
+            },
+            "date": "2022-09-23T14:14:52.189Z",
+            "status": "doing",
+            "id": 8
+        }
+    ]
+}

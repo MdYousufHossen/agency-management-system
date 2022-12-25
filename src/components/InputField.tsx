@@ -34,6 +34,7 @@ interface IProps {
     onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     width?: string;
     height?: string;
+    default?: string;
 }
 
 const InputField = memo((Props: IProps) => (
@@ -62,18 +63,19 @@ const InputField = memo((Props: IProps) => (
                 required={Props.required}
                 width={Props.width}
                 height={Props.height}
+                defaultValue={Props.default}
             />
             <Spacer flex />
             {/* error message */}
             {Props.error && (
-                <AbsoluteContent top="55px" left="18px">
+                <AbsoluteContent top="47px" left="18px">
                     <Typography color="red" variant="body2">
                         {Props.error}
                     </Typography>
                 </AbsoluteContent>
             )}
         </Container>
-        <Spacer height="15px" />
+        <Spacer height="25px" />
     </Fragment>
 ));
 export default InputField;
