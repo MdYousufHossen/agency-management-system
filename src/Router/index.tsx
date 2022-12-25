@@ -3,8 +3,8 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ROUTES from "~/constant/routes";
-import Admin from "~/Dashboard/Admin";
 import Dashboard from "~/Dashboard/Dashboard";
+import DashHome from "~/Dashboard/DashHome";
 import ConversationPage from "~/pages/chat/ConversationPage";
 import Inbox from "~/pages/chat/Inbox";
 import Home from "~/pages/Home";
@@ -57,7 +57,7 @@ export default memo(() => {
                         path={ROUTES.DASHBOARD}
                         element={
                             <DashboardRoute>
-                                <Admin />
+                                <DashHome />
                             </DashboardRoute>
                         }
                     />
