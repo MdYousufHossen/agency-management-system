@@ -17,7 +17,6 @@ const Login = () => {
     const [login, { data, isLoading, error: resErr, isError }] = useLoginMutation();
 
     const navigate = useNavigate();
-
     useEffect(() => {
         if (resErr) {
             if ("status" in resErr) {
