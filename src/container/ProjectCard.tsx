@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import { useDrag } from "react-dnd";
 import AbsoluteContent from "~/components/AbsoluteContent";
 import Container from "~/components/Container";
@@ -44,7 +45,7 @@ const ProjectCard = ({ project, backlog }: { project: projectType; backlog?: boo
                     <Container width="100%" alignItemsCenter displayFlex>
                         <Icon color="gray" name={ICON_NAME.Calender} height={20} width={20} />
                         <Typography color="gray" pl="10px" variant="body2">
-                            {project.updatedAt}
+                            {moment(project.updatedAt as unknown as number).format("dddd, MMMM Do YYYY")}
                         </Typography>
                     </Container>
                     <TeamStyle.Avater src="https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg" alt="" />

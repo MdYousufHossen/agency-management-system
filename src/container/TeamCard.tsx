@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import { Fragment, useState } from "react";
 import AbsoluteContent from "~/components/AbsoluteContent";
 import Container from "~/components/Container";
@@ -40,7 +41,7 @@ const TeamCard = ({ team }: { team: TeamType }) => {
                     <Container width="100%" pl="10px" pt="10px" displayFlex alignItemsCenter>
                         <Icon color="gray" name={ICON_NAME.Calender} height={18} width={18} />
                         <Typography color="gray" pl="10px" variant="body2">
-                            {team.createdAt}
+                            {moment(team.createdAt as unknown as number).format("dddd, MMMM Do YYYY")}
                         </Typography>
                     </Container>
                 </AbsoluteContent>

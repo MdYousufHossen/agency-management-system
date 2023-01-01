@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import { useDrag } from "react-dnd";
 import { useAppSelector } from "~/app/hooks";
 import AbsoluteContent from "~/components/AbsoluteContent";
@@ -6,7 +7,6 @@ import Icon, { ICON_NAME } from "~/components/Icon";
 import Typography from "~/components/Typography";
 import { useDeleteTaskMutation } from "~/feautres/task/taskApi";
 import TeamStyle from "~/styles/Team";
-
 const TaskCard = ({ project, backlog }: { project: taskType; backlog?: boolean }) => {
     const user = useAppSelector((state) => state.auth.user);
     const [{ isDragging }, drag] = useDrag({
@@ -51,10 +51,12 @@ const TaskCard = ({ project, backlog }: { project: taskType; backlog?: boolean }
             </Container>
             <Container pt="5px" width="100%" alignItemsCenter displayFlex justifyBetween>
                 <Typography variant="body2">
-                    Team : <span style={{ color: "gray" }}>{project.team.name}</span>
+                    <span style={{ color: "gray" }}> Team : </span>
+                    {project.team.name}
                 </Typography>
                 <Typography variant="body2">
-                    Project : <span style={{ color: "gray" }}>{project.project.name}</span>
+                    <span style={{ color: "gray" }}> Project : </span>
+                    {project.project.name}
                 </Typography>
             </Container>
             <Typography pt="5px" variant="body2">
@@ -65,7 +67,7 @@ const TaskCard = ({ project, backlog }: { project: taskType; backlog?: boolean }
                 <Container width="100%" displayFlex alignItemsCenter>
                     <Icon color="gray" name={ICON_NAME.Calender} height={20} width={20} />
                     <Typography color="gray" pl="10px" variant="body2">
-                        {project.updatedAt}
+                        {moment(project.updatedAt as unknown as number).format("dddd, MMMM Do YYYY")}
                     </Typography>
                 </Container>
             </AbsoluteContent>
