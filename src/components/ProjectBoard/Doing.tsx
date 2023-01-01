@@ -20,7 +20,7 @@ const Doing = ({ data }: { data: projectType[] }) => {
         },
     });
 
-    const addDropData = (dropData: projectType) => {
+    const addDropData = (dropData: projectType | taskType) => {
         const projectVisiblety = data.find((p) => p._id === dropData._id);
         if (!projectVisiblety) {
             projectUpdate({

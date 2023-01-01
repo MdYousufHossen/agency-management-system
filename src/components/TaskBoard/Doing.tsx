@@ -1,14 +1,15 @@
 import { useDrop } from "react-dnd";
-import ProjectCard from "~/container/ProjectCard";
-import { useProjectUpdateMutation } from "~/feautres/projects/projectApi";
-import Container from "../Container";
-import ProjectHeader from "../ProjectHeader";
+import TaskCard from "~/container/TaskCard";
+import { useTaskUpdateMutation } from "~/feautres/task/taskApi";
 
-const Done = ({ data }: { data: projectType[] }) => {
-    const [projectUpdate] = useProjectUpdateMutation();
+import Container from "../Container";
+import TaskHeader from "../TaskHeader";
+
+const Doing = ({ data }: { data: taskType[] }) => {
+    const [taskUpdate] = useTaskUpdateMutation();
     const [{ isOver }, drop] = useDrop({
-        accept: "project",
-        drop: (item: projectType) => {
+        accept: "task",
+        drop: (item: taskType) => {
             addDropData(item);
         },
         collect: (monitor) => {
@@ -19,25 +20,25 @@ const Done = ({ data }: { data: projectType[] }) => {
         },
     });
 
-    const addDropData = (dropData: projectType | taskType) => {
+    const addDropData = (dropData: taskType) => {
         const projectVisiblety = data.find((p) => p._id === dropData._id);
         if (!projectVisiblety) {
-            projectUpdate({
+            taskUpdate({
                 id: dropData._id,
-                data: { status: "Done" },
+                data: { status: "Doing" },
             });
         }
     };
     return (
         <div ref={drop} style={{ backgroundColor: isOver ? "gray" : "", borderRadius: "10px" }}>
-            <ProjectHeader name="Done" count={data.length} />
-            <Container height="fit-content" width="330px" brb="10px" brt="10px" displayFlex flexCol gap="10px">
+            <TaskHeader name="Doing" count={data.length} />
+            <Container height="fit-content" width="330px" displayFlex flexCol gap="10px">
                 {data.map((project) => (
-                    <ProjectCard key={project._id as unknown as number} project={project} />
+                    <TaskCard key={project._id as unknown as number} project={project} />
                 ))}
             </Container>
         </div>
     );
 };
 
-export default Done;
+export default Doing;

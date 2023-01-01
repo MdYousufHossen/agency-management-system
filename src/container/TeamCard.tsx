@@ -10,6 +10,9 @@ const TeamCard = ({ team }: { team: TeamType }) => {
     const controleModal = () => {
         setOpened((prevState) => !prevState);
     };
+    const emails = team.user.map((item) => {
+        return item.email;
+    });
     return (
         <Fragment>
             <TeamStyle.Wrapper>
@@ -21,7 +24,12 @@ const TeamCard = ({ team }: { team: TeamType }) => {
                 </Container>
                 <Container pt="15px" pl="10px" pr="10px" gap="10px" displayFlex flexWrape width="100%">
                     {team.user.map((user) => (
-                        <TeamStyle.Avater key={user._id} src="https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg" alt="" />
+                        <TeamStyle.Avater
+                            title={user.firstName + " " + user.lastName}
+                            key={user._id}
+                            src="https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg"
+                            alt=""
+                        />
                     ))}
                 </Container>
                 <Typography pl="10px" pr="10px" pt="10px" variant="body2">
@@ -37,7 +45,7 @@ const TeamCard = ({ team }: { team: TeamType }) => {
                     </Container>
                 </AbsoluteContent>
             </TeamStyle.Wrapper>
-            <AddTeamMember email="dkfdf" control={controleModal} open={opened} />
+            <AddTeamMember emails={emails} teamId={team._id} control={controleModal} open={opened} />
         </Fragment>
     );
 };

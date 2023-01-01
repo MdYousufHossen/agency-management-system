@@ -44,7 +44,13 @@ export const projectApi = apiSlice.injectEndpoints({
                 }
             },
         }),
+        deleteProject: builder.mutation<any, any>({
+            query: (id) => ({
+                url: `/project?id=${id}`,
+                method: "DELETE",
+            }),
+        }),
     }),
 });
 
-export const { useGetProjectsQuery, useAddProjectMutation, useProjectUpdateMutation } = projectApi;
+export const { useGetProjectsQuery, useAddProjectMutation, useProjectUpdateMutation, useDeleteProjectMutation } = projectApi;

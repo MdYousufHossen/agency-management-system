@@ -21,7 +21,35 @@ export const teamApi = apiSlice.injectEndpoints({
                 );
             },
         }),
+        updateTeam: builder.mutation<any, Partial<any>>({
+            query: ({ id, data }) => ({
+                url: `/team?id=${id}`,
+                method: "PATCH",
+                body: data,
+            }),
+            async onQueryStarted({ id, data }, { queryFulfilled, dispatch }) {
+                // pessimistically cache update start
+
+                const patchResult = dispatch(
+                    apiSlice.util.updateQueryData("getTeams" as never, undefined as never, (draft: any) => {
+                        const draftData = draft.data.find((m: any) => m._id == id);
+                        draftData.user.push(data);
+                    }),
+                );
+                try {
+                    await queryFulfilled;
+                } catch {
+                    patchResult.undo();
+                }
+            },
+        }),
+        deleteTeam: builder.mutation<any, any>({
+            query: (id) => ({
+                url: `/team?id=${id}`,
+                method: "DELETE",
+            }),
+        }),
     }),
 });
 
-export const { useGetTeamsQuery, useCreateTeamMutation } = teamApi;
+export const { useGetTeamsQuery, useCreateTeamMutation, useUpdateTeamMutation, useDeleteTeamMutation } = teamApi;

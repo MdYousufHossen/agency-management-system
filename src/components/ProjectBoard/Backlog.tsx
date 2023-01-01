@@ -4,7 +4,11 @@ import { useProjectUpdateMutation } from "~/feautres/projects/projectApi";
 import Container from "../Container";
 import ProjectHeader from "../ProjectHeader";
 
-const Backlog = ({ data }: { data: projectType[] }) => {
+interface Props {
+    data: projectType[];
+}
+
+const Backlog: React.FC<Props> = ({ data }) => {
     const [projectUpdate] = useProjectUpdateMutation();
     const [{ isOver }, drop] = useDrop({
         accept: "project",
@@ -19,7 +23,7 @@ const Backlog = ({ data }: { data: projectType[] }) => {
         },
     });
 
-    const addDropData = (dropData: projectType) => {
+    const addDropData = (dropData: projectType | taskType) => {
         const projectVisiblety = data.find((p) => p._id === dropData._id);
         if (!projectVisiblety) {
             projectUpdate({

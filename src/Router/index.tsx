@@ -99,9 +99,11 @@ export default memo(() => {
                     <Route
                         path={ROUTES.TASK}
                         element={
-                            <AdminRoute>
-                                <Task />
-                            </AdminRoute>
+                            <DndProvider backend={HTML5Backend}>
+                                <AdminRoute>
+                                    <Task />
+                                </AdminRoute>
+                            </DndProvider>
                         }
                     />
                 </Route>

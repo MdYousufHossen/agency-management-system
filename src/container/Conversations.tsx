@@ -12,7 +12,7 @@ import AddConversation from "~/modal/AddConversation";
 import ChatStyle from "~/styles/ChatApp";
 
 const Conversations = () => {
-    const user = useAppSelector((state) => state.auth.user);
+    const user = useAppSelector((state) => state?.auth.user);
     const [opened, setOpened] = useState<boolean>(false);
     const controleModal = () => {
         setOpened((prevState) => !prevState);
@@ -21,7 +21,6 @@ const Conversations = () => {
     const { data, isLoading, error, isError } = useGetConversationsQuery(user.email);
     const emails = data?.data.map((item) => {
         const itemdata = item.user.find((item) => item.email != user.email);
-
         return itemdata ? itemdata.email : "";
     });
     emails?.push(user.email);
