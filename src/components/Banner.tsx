@@ -6,9 +6,9 @@ import Spacer from "~/components/Spacer";
 import Typography from "~/components/Typography";
 import ENGLISH from "~/constant/lang/english";
 import ROUTES from "~/constant/routes";
-import AppHeader from "~/container/AppHeader";
 import useAuth from "~/hooks/useAuth";
 import { UnderLine } from "~/styles/Banner";
+import Navbar from "./Navbar";
 import StyledLink from "./StyledLink";
 
 const Banner = () => {
@@ -16,8 +16,9 @@ const Banner = () => {
 
     return (
         <ClipPathDiv>
-            <AppHeader />
-            <Container displayFlex>
+            <Navbar />
+            {/* <AppHeader /> */}
+            <Container displayFlex mobile={"flex-direction:column; width:90%"}>
                 <Container width="fit-content">
                     <Typography color="white" variant="title1">
                         {ENGLISH.HOME_BANNER.TITLE}
@@ -42,7 +43,7 @@ const Banner = () => {
                         )}
                     </Button>
                 </Container>
-                <Container width="fit-content" mobile={{ display: "none" }}>
+                <Container width="fit-content">
                     <Manager height="90%" width="90%" />
                 </Container>
             </Container>

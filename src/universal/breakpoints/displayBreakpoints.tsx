@@ -1,20 +1,17 @@
-const breakpoints = {
-    mobileS: "320px",
-    mobileM: "375px",
-    mobileL: "425px",
-    tablet: "765px",
-    laptop: "1024px",
-    laptopL: "1440px",
-    desktop: "2560px",
+export const screeinBreakpoints: { [key: string]: number } = {
+    mobile: 400,
+    tablet: 600,
+    landscape: 768,
+    laptopS: 992,
+    laptopL: 1200,
+    largeScreen: 1800,
 };
 
 export const device = {
-    mobileS: `(max-width: ${breakpoints.mobileS})`,
-    mobileM: `(min-width: ${breakpoints.mobileS}) and (max-width: ${breakpoints.mobileM})`,
-    mobileL: `(max-width: ${breakpoints.mobileL})`,
-    tablet: `(min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop})`,
-    laptop: `(max-width: ${breakpoints.laptop})`,
-    laptopL: `(max-width: ${breakpoints.laptopL})`,
-    desktop: `(max-width: ${breakpoints.desktop})`,
-    desktopL: `(max-width: ${breakpoints.desktop})`,
+    mobile: `(max-width:${screeinBreakpoints.mobile}px)`,
+    tablet: ` (min-width:${screeinBreakpoints.mobile}px) and (max-width:${screeinBreakpoints.tablet}px)`,
+    landscape: `(min-width:${screeinBreakpoints.tablet}px) and (max-width:${screeinBreakpoints.landscape}px)`,
+    laptopS: `(min-width:${screeinBreakpoints.landscape}px) and (max-width:${screeinBreakpoints.laptopS}px)`,
+    laptopL: `(min-width:${screeinBreakpoints.landscape}px) and (max-width:${screeinBreakpoints.laptopL}px)`,
+    largeScreen: `(min-width:${screeinBreakpoints.laptopL}px) and (max-width:${screeinBreakpoints.largeScreen}px)`,
 };

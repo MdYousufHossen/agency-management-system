@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { breakpoints } from "~/universal/breakpoints/Breakpoints";
+import { screeinBreakpoints } from "~/universal/breakpoints/displayBreakpoints";
 import Icon, { ICON_NAME } from "./Icon";
 
 const TrustedWraper = styled.div`
@@ -6,6 +8,7 @@ const TrustedWraper = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     width: 50%;
+    ${breakpoints("width", "%", [{ [screeinBreakpoints.landscape]: 100 }, { [screeinBreakpoints.tablet]: 100 }, { [screeinBreakpoints.mobile]: 100 }])};
     margin: auto;
 `;
 const Trusted = styled.div`

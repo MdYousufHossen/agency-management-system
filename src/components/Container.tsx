@@ -61,7 +61,10 @@ const Container = styled.div<ContainerProps>`
     ${(p) => p.opacity && `opacity:${p.opacity};`}
     ${(p) => p.styles};
     ${(p) => p.clickable && `cursor:pointer;`}
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
+        ${(p) => p.mobile}
+    }
+    @media ${device.tablet} {
         ${(p) => p.mobile}
     }
     ${(p) =>

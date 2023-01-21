@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { breakpoints } from "~/universal/breakpoints/Breakpoints";
+import { screeinBreakpoints } from "~/universal/breakpoints/displayBreakpoints";
 
 interface TypographyProps {
     children: React.ReactNode;
@@ -15,20 +17,20 @@ interface TypographyProps {
     br?: string;
 }
 
-const fontSize: { [key: string]: string } = {
-    title1: "40px",
-    title2: "40px",
-    title3: "20px",
-    title4: "14px",
-    title5: "14px",
-    title6: "12px",
-    body1: "18px",
-    body2: "14px",
-    body3: "14px",
-    body4: "12px",
-    body5: "12px",
-    body6: "10px",
-    body7: "10px",
+const fontSize: { [key: string]: { mobile?: number; tab?: number; laptop?: number } } = {
+    title1: { mobile: 30, tab: 35, laptop: 40 },
+    title2: { mobile: 30, tab: 35, laptop: 40 },
+    title3: { mobile: 20, tab: 20, laptop: 20 },
+    title4: { mobile: 14, tab: 14, laptop: 14 },
+    title5: { mobile: 14, tab: 14, laptop: 14 },
+    title6: { mobile: 12, tab: 12, laptop: 12 },
+    body1: { mobile: 18, tab: 18, laptop: 18 },
+    body2: { mobile: 14, tab: 14, laptop: 14 },
+    body3: { mobile: 14, tab: 14, laptop: 14 },
+    body4: { mobile: 12, tab: 12, laptop: 12 },
+    body5: { mobile: 12, tab: 12, laptop: 12 },
+    body6: { mobile: 10, tab: 10, laptop: 10 },
+    body7: { mobile: 10, tab: 10, laptop: 10 },
 };
 
 const fontWeight: { [key: string]: number } = {
@@ -59,7 +61,16 @@ const lineHeight: { [key: string]: string } = {
 };
 
 const Typography = styled.h6<TypographyProps>`
-    font-size: ${(props) => fontSize[props.variant]};
+    font-size: ${(props) => fontSize[props.variant].laptop};
+    ${(p) =>
+        breakpoints("font-size", "px", [
+            { [screeinBreakpoints.largeScreen]: fontSize[p.variant].laptop },
+            { [screeinBreakpoints.laptopL]: fontSize[p.variant].laptop },
+            { [screeinBreakpoints.laptopS]: fontSize[p.variant].laptop },
+            { [screeinBreakpoints.landscape]: fontSize[p.variant].laptop },
+            { [screeinBreakpoints.tablet]: fontSize[p.variant].tab },
+            { [screeinBreakpoints.mobile]: fontSize[p.variant].mobile },
+        ])};
     font-weight: ${(props) => fontWeight[props.variant]};
     font-family: ${(p) => fontFamily[p?.variant]};
     line-height: ${(p) => lineHeight[p?.variant]};

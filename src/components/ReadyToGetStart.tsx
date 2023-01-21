@@ -16,11 +16,11 @@ const ReadyToGetStart = () => {
     return (
         <Wrapper>
             <Container pt="150px" width="35%" mobile={{ padding: "20px 0 0 0", width: "80%" }} displayFlex flexCol justifyContentCenter>
-                <Typography align="center" variant="title2">
+                <Typography color="white" align="center" variant="title2">
                     Ready to get started?
                 </Typography>
                 <Spacer height="20px" />
-                <Typography align="center" variant="body1">
+                <Typography color="white" align="center" variant="body1">
                     With lots of unique blocks, you can easily build a page without coding. Build your next landing page.
                 </Typography>
                 <Button width="80%" size="large" margin="20px auto">

@@ -4,12 +4,12 @@ import Spacer from "./Spacer";
 import Typography from "./Typography";
 const CustomerTrust = () => {
     return (
-        <Container displayFlex width="80%">
-            <Container mobile={"display:none"} width="30%">
+        <Container mobile={"flex-direction:column;"} displayFlex width="80%">
+            <Container mobile={"width:100%; margin-bottom:20px"} width="30%">
                 <CustomerTrustIcon width="90%" height="40%" />
             </Container>
-            <Spacer mobile={"display:none"} flex />
-            <Container width="60%" mobile={"width:100%"}>
+            <Spacer flex />
+            <Container width="60%" mobile={"width:90%"}>
                 <Typography variant="title2" color="black">
                     Cyber security solutions built on customer trust
                 </Typography>
