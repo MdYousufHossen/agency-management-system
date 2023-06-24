@@ -44,7 +44,6 @@ export const messageApi = apiSlice.injectEndpoints({
                     socket.on("message", (data: any) => {
                         if (arg == data.data.conversationId) {
                             updateCachedData((draft) => {
-                                console.log("updateData");
                                 draft.data.messages.unshift(data.data);
                             });
                         }

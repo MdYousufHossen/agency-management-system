@@ -10,7 +10,6 @@ import NavigationStyle from "~/styles/Navigation";
 
 const DNavigation = memo(({ checked, setChecked }: { checked: Boolean; setChecked: React.Dispatch<React.SetStateAction<Boolean>> }) => {
     const user = useAppSelector((state) => state.auth.user);
-    console.log(user, "user");
     let activeStyle = {
         textDecoration: "none",
         color: "white",

@@ -44,7 +44,6 @@ const Profile = () => {
     };
 
     const handleEdit = () => {
-        console.log(edit, "click edit");
         if (edit) {
             fileInputRef.current?.click();
         } else {

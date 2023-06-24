@@ -12,7 +12,6 @@ import { useGetTaskQuery } from "~/feautres/task/taskApi";
 
 const Task = () => {
     const { data, isLoading, isError, error } = useGetTaskQuery();
-    console.log(data);
     let content = null;
     if (isLoading) {
         content = <FadeLoader cssOverride={{ margin: "auto" }} color="#36d7b7" />;
