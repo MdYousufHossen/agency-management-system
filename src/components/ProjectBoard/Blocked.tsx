@@ -3,7 +3,7 @@ import ProjectCard from "~/container/ProjectCard";
 import { useProjectUpdateMutation } from "~/feautres/projects/projectApi";
 import Container from "../Container";
 import ProjectHeader from "../ProjectHeader";
-const Blocked = ({ data }: { data: projectType[] }) => {
+const Blocked = ({ data }: { data: projectTypeRes[] }) => {
     const [projectUpdate] = useProjectUpdateMutation();
     const [{ isOver }, drop] = useDrop({
         accept: "project",

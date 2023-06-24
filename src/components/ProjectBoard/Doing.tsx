@@ -5,7 +5,7 @@ import { useProjectUpdateMutation } from "~/feautres/projects/projectApi";
 import Container from "../Container";
 import ProjectHeader from "../ProjectHeader";
 
-const Doing = ({ data }: { data: projectType[] }) => {
+const Doing = ({ data }: { data: projectTypeRes[] }) => {
     const [projectUpdate] = useProjectUpdateMutation();
     const [{ isOver }, drop] = useDrop({
         accept: "project",

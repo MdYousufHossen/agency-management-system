@@ -6,7 +6,7 @@ import Icon, { ICON_NAME } from "~/components/Icon";
 import Typography from "~/components/Typography";
 import TeamStyle from "~/styles/Team";
 
-const ProjectCard = ({ project, backlog }: { project: projectType; backlog?: boolean }) => {
+const ProjectCard = ({ project, backlog }: { project: projectTypeRes; backlog?: boolean }) => {
     // const {user}=useSelector((state)=>state.auth)
     const [{ isDragging }, drag] = useDrag({
         type: "project",
@@ -48,7 +48,7 @@ const ProjectCard = ({ project, backlog }: { project: projectType; backlog?: boo
                             {moment(project.updatedAt as unknown as number).format("dddd, MMMM Do YYYY")}
                         </Typography>
                     </Container>
-                    <TeamStyle.Avater src="https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg" alt="" />
+                    <TeamStyle.Avater src={project.author?.imageURL} alt="" />
                 </Container>
             </AbsoluteContent>
         </Container>

@@ -5,7 +5,7 @@ import { useTaskUpdateMutation } from "~/feautres/task/taskApi";
 import Container from "../Container";
 import TaskHeader from "../TaskHeader";
 
-const Doing = ({ data }: { data: taskType[] }) => {
+const Doing = ({ data }: { data: taskTypeRes[] }) => {
     const [taskUpdate] = useTaskUpdateMutation();
     const [{ isOver }, drop] = useDrop({
         accept: "task",

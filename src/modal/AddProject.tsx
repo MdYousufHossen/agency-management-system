@@ -30,19 +30,11 @@ const AddProject = ({ open, control }: ModalType) => {
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        const author = {
-            _id: user._id,
-            email: user.email,
-            role: user.role,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            updatedAt: user.updatedAt,
-        };
         addProject({
             name,
             description,
             team: selectedTeam,
-            author,
+            author: user._id,
         });
     };
 

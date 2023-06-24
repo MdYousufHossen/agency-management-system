@@ -1,4 +1,5 @@
 declare interface RegisterTypes {
+    [x: string]: any;
     updatedAt: any;
     _id?: string;
     firstName: string;
@@ -12,6 +13,7 @@ declare interface RegisterTypes {
     createdAt?: string;
     confirmationToken?: string;
     confirmationTokenExpires?: string;
+    imageURL?: string;
 }
 declare interface userTypes {
     token?: string;

@@ -5,7 +5,7 @@ import Container from "../Container";
 import TaskHeader from "../TaskHeader";
 
 interface Props {
-    data: taskType[];
+    data: taskTypeRes[];
 }
 
 const Backlog: React.FC<Props> = ({ data }) => {

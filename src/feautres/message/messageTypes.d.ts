@@ -7,6 +7,7 @@ declare interface messageType {
         role: string;
         firstName: string;
         lastName: string;
+        imageURL: string;
     };
     receiver: {
         _id: string;
@@ -14,6 +15,7 @@ declare interface messageType {
         role: string;
         firstName: string;
         lastName: string;
+        imageURL: string;
     };
     message: String;
     createdAt: String;

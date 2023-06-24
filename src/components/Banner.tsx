@@ -1,3 +1,4 @@
+//this component is used to display the banner on the home page. It contains the title, subtitle, description and a button to login or go to dashboard. It also contains the svg image of the manager.
 import { ReactComponent as Manager } from "~/assets/images/manager.svg";
 import { Button } from "~/components/Button";
 import ClipPathDiv from "~/components/ClipPathDiv";
@@ -6,9 +7,9 @@ import Spacer from "~/components/Spacer";
 import Typography from "~/components/Typography";
 import ENGLISH from "~/constant/lang/english";
 import ROUTES from "~/constant/routes";
+import AppHeader from "~/container/AppHeader";
 import useAuth from "~/hooks/useAuth";
 import { UnderLine } from "~/styles/Banner";
-import Navbar from "./Navbar";
 import StyledLink from "./StyledLink";
 
 const Banner = () => {
@@ -16,8 +17,8 @@ const Banner = () => {
 
     return (
         <ClipPathDiv>
-            <Navbar />
-            {/* <AppHeader /> */}
+            {/* <Navbar /> */}
+            <AppHeader />
             <Container displayFlex mobile={"flex-direction:column; width:90%"}>
                 <Container width="fit-content">
                     <Typography color="white" variant="title1">

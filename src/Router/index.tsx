@@ -10,6 +10,7 @@ import Inbox from "~/pages/chat/Inbox";
 import Home from "~/pages/Home";
 import Login from "~/pages/Login";
 import Payment from "~/pages/Payment";
+import Profile from "~/pages/Profile";
 import ProjectManagement from "~/pages/ProjectManagement";
 import Register from "~/pages/Register";
 import Task from "~/pages/Task";
@@ -82,6 +83,14 @@ export default memo(() => {
                         element={
                             <AdminRoute>
                                 <Team />
+                            </AdminRoute>
+                        }
+                    />
+                    <Route
+                        path={ROUTES.PROFILE}
+                        element={
+                            <AdminRoute>
+                                <Profile />
                             </AdminRoute>
                         }
                     />

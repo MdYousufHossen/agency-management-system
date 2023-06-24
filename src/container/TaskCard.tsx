@@ -7,7 +7,7 @@ import Icon, { ICON_NAME } from "~/components/Icon";
 import Typography from "~/components/Typography";
 import { useDeleteTaskMutation } from "~/feautres/task/taskApi";
 import TeamStyle from "~/styles/Team";
-const TaskCard = ({ project, backlog }: { project: taskType; backlog?: boolean }) => {
+const TaskCard = ({ project, backlog }: { project: taskTypeRes; backlog?: boolean }) => {
     const user = useAppSelector((state) => state.auth.user);
     const [{ isDragging }, drag] = useDrag({
         type: "task",
@@ -39,8 +39,8 @@ const TaskCard = ({ project, backlog }: { project: taskType; backlog?: boolean }
                 <Container width="100%" alignItemsCenter displayFlex>
                     <TeamStyle.Avater
                         title={project.author.firstName + " " + project.author.lastName}
-                        src="https://faces-img.xcdn.link/thumb-lorem-face-2929_thumb.jpg"
-                        alt=""
+                        src={project.author?.imageURL}
+                        alt={project.author.firstName + " " + project.author.lastName}
                     />
                     <Typography margin="0 10px" color="white" background="#7cbdbf" br="10px" pl="5px" pr="5px" variant="body2">
                         <span style={{ color: "black" }}> {project.author.firstName + " " + project.author.lastName}</span>

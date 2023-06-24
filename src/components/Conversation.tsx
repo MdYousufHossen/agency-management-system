@@ -34,12 +34,7 @@ const Conversation = memo(({ conversation, userEmail }: { conversation: conversa
                 margin="0 0 20px 0"
             >
                 <ChatStyle.Conversation>
-                    <ChatStyle.avatar
-                        src="https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=2000"
-                        alt="profile"
-                        width={50}
-                        height={50}
-                    />
+                    <ChatStyle.avatar src={partner?.imageURL} alt="profile" width={50} height={50} />
                     <div>
                         <Typography margin="0 10px" variant="body1">
                             {partner?.firstName}

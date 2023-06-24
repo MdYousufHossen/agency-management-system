@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FadeLoader } from "react-spinners";
 import { useAppSelector } from "~/app/hooks";
@@ -6,7 +6,9 @@ import Container from "~/components/Container";
 import Icon, { ICON_NAME } from "~/components/Icon";
 import Spacer from "~/components/Spacer";
 import Typography from "~/components/Typography";
+import { SocketProvider } from "~/context/SocketContext";
 import { useGetMessagesQuery } from "~/feautres/message/message";
+import VideoCall from "~/modal/VideoCall";
 import ChatStyle from "~/styles/ChatApp";
 import ChatOption from "./ChatOption";
 import Messages from "./Messages";
@@ -14,6 +16,10 @@ import Messages from "./Messages";
 const ChatBody = () => {
     const { id } = useParams<keyof { id: string }>() as { id: string };
     const user = useAppSelector((state) => state.auth.user);
+    const [opened, setOpened] = useState<boolean>(false);
+    const controleModal = () => {
+        setOpened((prevState) => !prevState);
+    };
     if (!user) return null;
     const { data, isLoading, error, isError } = useGetMessagesQuery(id);
 
@@ -41,23 +47,22 @@ const ChatBody = () => {
             <Fragment>
                 <Container width="100%" displayFlex alignItemsCenter>
                     <Container width="fit-content" displayFlex alignItemsCenter>
-                        <ChatStyle.avatar
-                            src="https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=2000"
-                            alt="profile"
-                            width={50}
-                            height={50}
-                        />
+                        <ChatStyle.avatar src={partnerInfo?.imageURL} alt="profile" width={50} height={50} />
                         <Typography margin="0 10px" variant="body1" color="black">
-                            {partnerInfo.firstName}
+                            {partnerInfo?.firstName}
                         </Typography>
                     </Container>
                     <Spacer flex />
-                    <Container width="fit-content" pr="20px">
+                    <Container width="fit-content" displayFlex pr="20px">
                         <Icon name={ICON_NAME.Call} width={30} height={30} />
+                        <Icon onClick={controleModal} name={ICON_NAME.Call} width={30} height={30} />
                     </Container>
                 </Container>
                 <Messages messages={messages} totalCount={totalCount} />
                 <ChatOption info={partnerInfo} conversationId={id} />
+                <SocketProvider>
+                    <VideoCall open={opened} partnerInfo={partnerInfo} control={controleModal} />
+                </SocketProvider>
             </Fragment>
         );
     }

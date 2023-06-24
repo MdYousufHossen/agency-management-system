@@ -4,6 +4,7 @@ declare interface userType {
     role: string;
     firstName: string;
     lastName: string;
+    imageURL?: string;
     // updatedAt: string;
 }
 declare interface usersType {

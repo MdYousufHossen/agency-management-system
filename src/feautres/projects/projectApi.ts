@@ -2,7 +2,7 @@ import { apiSlice } from "../api/apiSlice";
 
 export const projectApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getProjects: builder.query<ProjectTypes, void>({
+        getProjects: builder.query<ProjectResType, void>({
             query: () => "/project",
         }),
         addProject: builder.mutation<ProjectResType, Partial<Pick<projectType, "name" & "description" & "team" & "author">>>({

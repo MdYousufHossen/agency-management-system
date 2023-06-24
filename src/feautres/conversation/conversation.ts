@@ -37,6 +37,7 @@ export const conversationApi = apiSlice.injectEndpoints({
                     await cacheDataLoaded;
                     socket.on("conversation", (data: any) => {
                         const isEmailVisible = data.data.user.find((item: any) => item.email == arg);
+                        console.log(data, "updatededfjdkf");
                         if (isEmailVisible) {
                             updateCachedData((draft) => {
                                 const draftData = draft.data.find((item) => item._id == data.data._id);

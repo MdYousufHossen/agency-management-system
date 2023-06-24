@@ -27,18 +27,18 @@ const CreateTeam = ({ open, control }: ModalPropType) => {
 
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
-        const author = {
-            _id: user._id,
-            email: user.email,
-            role: user.role,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            updatedAt: user.updatedAt,
-        };
+        // const author = {
+        //     _id: user._id,
+        //     email: user.email,
+        //     role: user.role,
+        //     firstName: user.firstName,
+        //     lastName: user.lastName,
+        //     updatedAt: user.updatedAt,
+        // };
         createTeam({
             name,
             description,
-            user: [author],
+            user: [user._id],
         });
     };
     return open ? (

@@ -13,7 +13,7 @@ const Spacer = styled.div<SpacerProps>`
     ${(p) => p.height && `height: ${p.height}`};
     ${(p) => p.flex && `flex: 1`};
     background-color: transparent;
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
         ${(p) => p.mobile}
     }
 `;

@@ -36,6 +36,11 @@ const ENGLISH = {
             link: ROUTES.TASK,
             logo: "Task",
         },
+        {
+            name: "Profile",
+            link: ROUTES.PROFILE,
+            logo: "Task",
+        },
     ],
 };
 

@@ -12,6 +12,7 @@ export const PRIVATE_ROUTES = {
     TASK: "/dashboard/task",
     PROJECTS: "/dashboard/project",
     PAYMENT: "/payment",
+    PROFILE: "/dashboard/profile",
 };
 
 const ROUTES = {

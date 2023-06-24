@@ -5,7 +5,7 @@ import Container from "../Container";
 import ProjectHeader from "../ProjectHeader";
 
 interface Props {
-    data: projectType[];
+    data: projectTypeRes[];
 }
 
 const Backlog: React.FC<Props> = ({ data }) => {

@@ -6,8 +6,8 @@ import ChatStyle from "~/styles/ChatApp";
 
 const Messages = ({ messages, totalCount }: { messages: messageType[]; totalCount: number }) => {
     const { id } = useParams<keyof { id: string }>() as { id: string };
-    const user = useAppSelector((state) => state.auth.user);
-    if (!user) return null;
+    const user = useAppSelector((state) => state?.auth.user);
+    // if (!user) return null;
     // const [page, setPage] = useState<number>(1);
     // const fetchMore = () => {
     //     setPage((prevPage) => prevPage + 1);
@@ -46,8 +46,8 @@ const Messages = ({ messages, totalCount }: { messages: messageType[]; totalCoun
             >
                 {messages.map((message: messageType) => {
                     return (
-                        <ChatStyle.messageWrapper key={message._id} partner={message.sender.email != user.email}>
-                            <ChatStyle.message partner={message.sender.email != user.email}>{message.message}</ChatStyle.message>
+                        <ChatStyle.messageWrapper key={message._id} partner={message.sender.email != user?.email}>
+                            <ChatStyle.message partner={message.sender?.email != user?.email}>{message.message}</ChatStyle.message>
                         </ChatStyle.messageWrapper>
                     );
                 })}

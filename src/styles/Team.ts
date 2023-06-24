@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as More } from "~/assets/icons/more.svg";
+
 const Wrapper = styled.div`
     width: 300px;
     height: 180px;
@@ -12,10 +13,10 @@ const Wrapper = styled.div`
 const MoreIcon = styled(More)`
     all: unset;
 `;
-const Avater = styled.img`
+const Avater = styled.img<any>`
     border-radius: 50%;
-    width: 40px;
-    height: auto;
+    width: ${(p) => p.width || "40px"};
+    height: ${(p) => p.height || "50px"};
 `;
 
 const TeamStyle = {

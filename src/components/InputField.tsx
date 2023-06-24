@@ -6,15 +6,23 @@ import Icon from "./Icon";
 import Spacer from "./Spacer";
 import Typography from "./Typography";
 
-const InputFieldStyled = styled.input`
-    height: ${(p) => (p.width ? p.height : "35px")};
+interface InputType {
+    width?: string;
+    height?: string;
+    pl?: string;
+    pr?: string;
+    br?: string;
+    borderColor?: string;
+}
+const InputFieldStyled = styled.input<InputType>`
+    height: ${(p) => (p.height ? p.height : "35px")};
     width: ${(p) => (p.width ? p.width : "245px")};
     border: 1px solid #b1b1b0;
-    border-radius: 24px;
+    border-radius: ${(p) => (p.br ? p.br : "24px")}2;
     outline-color: #12141d;
     background: transparent;
-    padding-left: 40px;
-    padding-right: 30px;
+    padding-left: ${(p) => (p.pl ? p.pl : "40px")};
+    padding-right: ${(p) => (p.pr ? p.pr : "30px")};
     flex: 1;
     margin-top: 10px;
     ${(p: { borderColor?: string }) => p.borderColor && `border-color:${p.borderColor};`}
@@ -25,7 +33,7 @@ interface IProps {
     label?: string;
     placeholder?: string;
     error?: string;
-    icon: string;
+    icon?: string;
     name?: string;
     id?: string;
     value?: string;
@@ -34,6 +42,9 @@ interface IProps {
     onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     width?: string;
     height?: string;
+    pl?: string;
+    pr?: string;
+    br?: string;
     default?: string;
 }
 
@@ -47,9 +58,11 @@ const InputField = memo((Props: IProps) => (
                 </Typography>
             </AbsoluteContent>
             {/* Icon */}
-            <AbsoluteContent top="20px" left="18px">
-                <Icon name={Props.icon} height={20} width={20} />
-            </AbsoluteContent>
+            {Props.icon && (
+                <AbsoluteContent top="20px" left="18px">
+                    <Icon name={Props.icon} height={20} width={20} />
+                </AbsoluteContent>
+            )}
             {/* input field */}
             <InputFieldStyled
                 borderColor={Props.error && "red"}
@@ -63,6 +76,8 @@ const InputField = memo((Props: IProps) => (
                 required={Props.required}
                 width={Props.width}
                 height={Props.height}
+                pl={Props.pl}
+                pr={Props.pr}
                 defaultValue={Props.default}
             />
             <Spacer flex />

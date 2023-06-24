@@ -12,18 +12,10 @@ const ChatOption = ({ info, conversationId }: { info: userType; conversationId: 
     const [addMessage, { data, isLoading, error: resErr, isError, isSuccess }] = useAddMessageMutation();
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const sender = {
-            _id: user._id,
-            email: user.email,
-            role: user.role,
-            firstName: user?.firstName,
-            lastName: user?.lastName,
-        };
-
         addMessage({
             conversationId,
-            sender: sender,
-            receiver: info,
+            sender: user._id,
+            receiver: info._id,
             message: text,
         });
     };

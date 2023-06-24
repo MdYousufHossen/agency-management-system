@@ -10,7 +10,7 @@ import NavigationStyle from "~/styles/Navigation";
 
 const DNavigation = memo(({ checked, setChecked }: { checked: Boolean; setChecked: React.Dispatch<React.SetStateAction<Boolean>> }) => {
     const user = useAppSelector((state) => state.auth.user);
-
+    console.log(user, "user");
     let activeStyle = {
         textDecoration: "none",
         color: "white",
@@ -37,13 +37,7 @@ const DNavigation = memo(({ checked, setChecked }: { checked: Boolean; setChecke
             <NavigationStyle.wrapper toggle={checked}>
                 <Container padding="20px 5px" width="100%" displayFlex justifyBetween>
                     <Icon name={ICON_NAME.Menu} color="white" height={20} width={20} onClick={toggled} />
-                    <ChatStyle.avatar
-                        toggle={checked ? "none" : "block"}
-                        src="https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=2000"
-                        alt="profile"
-                        width={50}
-                        height={50}
-                    />
+                    <ChatStyle.avatar toggle={checked ? "none" : "block"} src={user?.imageURL} alt="profile" width={50} height={50} />
                     <div></div>
                 </Container>
                 <Typography color="white" align="center" variant="title5">
