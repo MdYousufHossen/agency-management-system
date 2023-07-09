@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
-import { PuffLoader } from "react-spinners";
+import { FadeLoader, PuffLoader } from "react-spinners";
 import { useAppSelector } from "~/app/hooks";
 import { Button } from "~/components/Button";
 import Container from "~/components/Container";
@@ -8,19 +8,20 @@ import Spacer from "~/components/Spacer";
 import Typography from "~/components/Typography";
 import { useUpdateUserMutation } from "~/feautres/users/user";
 import TeamStyle from "~/styles/Team";
-
 const Profile = () => {
+    const user = useAppSelector((state) => state?.auth.user);
     const [edit, setEdit] = useState<boolean>(false);
     const [image, setImage] = useState<File | null>(null);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [error, setError] = useState<string | undefined>("");
-    const user = useAppSelector((state) => state?.auth.user);
+
     const [updateUser, { data, isLoading, error: resErr, isSuccess, isError }] = useUpdateUserMutation();
     const fileInputRef = useRef<HTMLInputElement>(null);
     const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
             setImage(event.target.files[0]);
+            console.log(URL.createObjectURL(event.target.files[0]), "urlll");
         }
     };
 
@@ -56,69 +57,72 @@ const Profile = () => {
             <Typography align="center" variant="title2">
                 Profile
             </Typography>
-            {/* <form onSubmit={handleSubmit}>
-                <input type="file" accept="image/*" onChange={handleImageChange} />
-                <button type="submit">Upload</button>
-            </form> */}
-
-            <Container displayFlex width="100%">
-                <Container displayFlex flexCol justifyContentCenter width="50%">
-                    <TeamStyle.Avater style={{ margin: "auto" }} height="300" width="300" src={user?.imageURL} />
-                    <Spacer height="20px" />
-                    <Container width="fit-content">
-                        <input style={{ display: "none" }} name="right" type="file" ref={fileInputRef} onChange={handleImageChange} />
-                        <Button onClick={handleEdit}>{edit ? "Upload Image" : "Edit Profile"}</Button>
-                    </Container>
-                </Container>
-
-                <Container width="50%" displayFlex flexCol justifyContentCenter>
-                    <form onSubmit={handleSubmit}>
-                        {!edit ? (
-                            <Container displayFlex>
-                                <Typography variant="title3">{user?.firstName + " " + user?.lastName}</Typography>
-                            </Container>
+            {isLoading ? (
+                <FadeLoader cssOverride={{ margin: "auto" }} color="#36d7b7" />
+            ) : (
+                <Container displayFlex width="100%">
+                    <Container displayFlex flexCol justifyContentCenter width="50%">
+                        {image ? (
+                            <TeamStyle.Avater style={{ margin: "auto" }} height="300" width="300" src={URL.createObjectURL(image)} />
                         ) : (
-                            <Container displayFlex>
-                                <InputField
-                                    error={error}
-                                    required
-                                    width="150px"
-                                    height="30px"
-                                    pr="10px"
-                                    pl="10px"
-                                    default={user?.firstName}
-                                    onChange={(e) => setFirstName(e.target.value)}
-                                    // icon={ICON_NAME.IconPerson}
-                                    label="First Name"
-                                    type="text"
-                                />
-                                &nbsp;&nbsp;&nbsp;
-                                <InputField
-                                    error={error}
-                                    required
-                                    width="150px"
-                                    height="30px"
-                                    pr="10px"
-                                    pl="10px"
-                                    default={user?.lastName}
-                                    onChange={(e) => setLastName(e.target.value)}
-                                    // icon={ICON_NAME.IconPerson}
-                                    label="Last Name"
-                                    type="text"
-                                />
-                            </Container>
+                            <TeamStyle.Avater style={{ margin: "auto" }} height="300" width="300" src={user?.imageURL} />
                         )}
                         <Spacer height="20px" />
-                        {edit && (
-                            <Container width="fit-content">
-                                <Button size="small" variant="contained">
-                                    {isLoading ? <PuffLoader size={25} color="" /> : "submit"}
-                                </Button>
-                            </Container>
-                        )}
-                    </form>
+                        <Container width="fit-content">
+                            <input style={{ display: "none" }} name="right" type="file" ref={fileInputRef} onChange={handleImageChange} />
+                            <Button onClick={handleEdit}>{edit ? "Upload Image" : "Edit Profile"}</Button>
+                        </Container>
+                    </Container>
+
+                    <Container width="50%" displayFlex flexCol justifyContentCenter>
+                        <form onSubmit={handleSubmit}>
+                            {!edit ? (
+                                <Container displayFlex>
+                                    <Typography variant="title3">{user?.firstName + " " + user?.lastName}</Typography>
+                                </Container>
+                            ) : (
+                                <Container displayFlex>
+                                    <InputField
+                                        error={error}
+                                        required
+                                        width="150px"
+                                        height="30px"
+                                        pr="10px"
+                                        pl="10px"
+                                        default={user?.firstName}
+                                        onChange={(e) => setFirstName(e.target.value)}
+                                        // icon={ICON_NAME.IconPerson}
+                                        label="First Name"
+                                        type="text"
+                                    />
+                                    &nbsp;&nbsp;&nbsp;
+                                    <InputField
+                                        error={error}
+                                        required
+                                        width="150px"
+                                        height="30px"
+                                        pr="10px"
+                                        pl="10px"
+                                        default={user?.lastName}
+                                        onChange={(e) => setLastName(e.target.value)}
+                                        // icon={ICON_NAME.IconPerson}
+                                        label="Last Name"
+                                        type="text"
+                                    />
+                                </Container>
+                            )}
+                            <Spacer height="20px" />
+                            {edit && (
+                                <Container width="fit-content">
+                                    <Button size="small" variant="contained">
+                                        {isLoading ? <PuffLoader size={25} color="" /> : "submit"}
+                                    </Button>
+                                </Container>
+                            )}
+                        </form>
+                    </Container>
                 </Container>
-            </Container>
+            )}
         </Container>
     );
 };

@@ -1,8 +1,20 @@
 import { apiSlice } from "../api/apiSlice";
-import { userLoggedIn } from "./authSlice";
+import { userLoggedIn, userLoggedOut } from "./authSlice";
 
 export const authApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
+        checkuser: builder.query<string, void>({
+            query: () => `/user/me`,
+            async onQueryStarted(data, { queryFulfilled, dispatch }) {
+                try {
+                    await queryFulfilled;
+                } catch (err: any) {
+                    if (err.error.data.status === "fail") {
+                        dispatch(userLoggedOut());
+                    }
+                }
+            },
+        }),
         register: builder.mutation<ResTypes, Partial<RegisterTypes>>({
             query: (data) => ({
                 url: "/user/signup",
@@ -55,4 +67,4 @@ export const authApi = apiSlice.injectEndpoints({
         }),
     }),
 });
-export const { useLoginMutation, useRegisterMutation } = authApi;
+export const { useCheckuserQuery, useLoginMutation, useRegisterMutation } = authApi;

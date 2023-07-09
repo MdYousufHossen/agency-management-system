@@ -9,6 +9,7 @@ export interface AbsoluteContentProps {
     left?: string;
     right?: string;
     clickable?: boolean;
+    transform?: string;
 }
 
 const AbsoluteContent = styled.div<AbsoluteContentProps>`
@@ -21,6 +22,7 @@ const AbsoluteContent = styled.div<AbsoluteContentProps>`
     ${(p) => p.bottom && `bottom: ${p.bottom};`}
     ${(p) => p.left && `left: ${p.left};`}
     ${(p) => p.right && `right: ${p.right};`}
+    ${(p) => p.transform && `transform: ${p.transform};`}
     ${(props) =>
         props.clickable &&
         `
